@@ -783,7 +783,7 @@ function buildMyProfile(p){
     </div>
     <div class="my-profile-body">
       <div class="my-photo-wrap">
-        <img class="my-photo" src="photos/${p.id}.png" alt="${p.name}"
+        <img class="my-photo" src="${p.id}.png" alt="${p.name}"
           onerror="this.parentElement.innerHTML='<div class=\\'my-photo-noph\\'><span>🖼️</span><span>Photo Classified</span></div>'"
         />
         <div class="my-stamp">${stampText}</div>
@@ -801,117 +801,75 @@ function buildMyProfile(p){
 
 /* ── CRIME IMAGE DATA per person ── */
 const CRIME_IMGS={
-  6:[ // Ragging
-    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1588072432836-e10032774350?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=300&fit=crop',
+  6:[ // Ragging / College
+    'https://picsum.photos/seed/601/400/300','https://picsum.photos/seed/602/400/300',
+    'https://picsum.photos/seed/603/400/300','https://picsum.photos/seed/604/400/300',
+    'https://picsum.photos/seed/605/400/300','https://picsum.photos/seed/606/400/300',
   ],
-  7:[ // Scammer / Fraud
-    'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1596079890744-c1a0462d0975?w=400&h=300&fit=crop',
+  7:[ // Scammer / Cyber Fraud
+    'https://picsum.photos/seed/701/400/300','https://picsum.photos/seed/702/400/300',
+    'https://picsum.photos/seed/703/400/300','https://picsum.photos/seed/704/400/300',
+    'https://picsum.photos/seed/705/400/300','https://picsum.photos/seed/706/400/300',
   ],
   40:[ // Illegal Business
-    'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1521791055366-0d553872952f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop',
+    'https://picsum.photos/seed/401/400/300','https://picsum.photos/seed/402/400/300',
+    'https://picsum.photos/seed/403/400/300','https://picsum.photos/seed/404/400/300',
+    'https://picsum.photos/seed/405/400/300','https://picsum.photos/seed/406/400/300',
   ],
   43:[ // Bank Robbery
-    'https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1607944024060-0450380ddd33?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&h=300&fit=crop',
+    'https://picsum.photos/seed/431/400/300','https://picsum.photos/seed/432/400/300',
+    'https://picsum.photos/seed/433/400/300','https://picsum.photos/seed/434/400/300',
+    'https://picsum.photos/seed/435/400/300','https://picsum.photos/seed/436/400/300',
   ],
   61:[ // Money Laundering
-    'https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1621155346337-1d19476ba7d6?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1634128221889-82ed6efebfc3?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=400&h=300&fit=crop',
+    'https://picsum.photos/seed/611/400/300','https://picsum.photos/seed/612/400/300',
+    'https://picsum.photos/seed/613/400/300','https://picsum.photos/seed/614/400/300',
+    'https://picsum.photos/seed/615/400/300','https://picsum.photos/seed/616/400/300',
   ],
   64:[ // Drug Smuggling
-    'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1612531385446-f7e6d131e1d0?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1580894894513-541e068a3e2b?w=400&h=300&fit=crop',
+    'https://picsum.photos/seed/641/400/300','https://picsum.photos/seed/642/400/300',
+    'https://picsum.photos/seed/643/400/300','https://picsum.photos/seed/644/400/300',
+    'https://picsum.photos/seed/645/400/300','https://picsum.photos/seed/646/400/300',
   ],
-  81:[ // Psycho killer
-    'https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1590402494682-cd3fb53b1f70?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1587462392049-aef90dd29dfa?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?w=400&h=300&fit=crop',
+  81:[ // Psycho Killer
+    'https://picsum.photos/seed/811/400/300','https://picsum.photos/seed/812/400/300',
+    'https://picsum.photos/seed/813/400/300','https://picsum.photos/seed/814/400/300',
+    'https://picsum.photos/seed/815/400/300','https://picsum.photos/seed/816/400/300',
   ],
   84:[ // Murder
-    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1617634577842-b2eddeaea73e?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1587088007698-0dfdf4048ed4?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1593642634367-d91a135587b5?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1495569819610-9cdb68e7b527?w=400&h=300&fit=crop',
+    'https://picsum.photos/seed/841/400/300','https://picsum.photos/seed/842/400/300',
+    'https://picsum.photos/seed/843/400/300','https://picsum.photos/seed/844/400/300',
+    'https://picsum.photos/seed/845/400/300','https://picsum.photos/seed/846/400/300',
   ],
   88:[ // Drug Dealer
-    'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1612531385446-f7e6d131e1d0?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1580894894513-541e068a3e2b?w=400&h=300&fit=crop',
+    'https://picsum.photos/seed/881/400/300','https://picsum.photos/seed/882/400/300',
+    'https://picsum.photos/seed/883/400/300','https://picsum.photos/seed/884/400/300',
+    'https://picsum.photos/seed/885/400/300','https://picsum.photos/seed/886/400/300',
   ],
   106:[ // Weapons
-    'https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1584445584400-8578b99e8f7e?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1587467512961-120760940315?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1580128660010-fd027e1e587a?w=400&h=300&fit=crop',
+    'https://picsum.photos/seed/1061/400/300','https://picsum.photos/seed/1062/400/300',
+    'https://picsum.photos/seed/1063/400/300','https://picsum.photos/seed/1064/400/300',
+    'https://picsum.photos/seed/1065/400/300','https://picsum.photos/seed/1066/400/300',
   ],
-  108:[ // Bike stunt
-    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1622185135505-2d795003994a?w=400&h=300&fit=crop',
+  108:[ // Bike Stunt
+    'https://picsum.photos/seed/1081/400/300','https://picsum.photos/seed/1082/400/300',
+    'https://picsum.photos/seed/1083/400/300','https://picsum.photos/seed/1084/400/300',
+    'https://picsum.photos/seed/1085/400/300','https://picsum.photos/seed/1086/400/300',
   ],
   112:[ // Police / Investigation
-    'https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1588096344992-1dcf4b84bb6a?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1521791055366-0d553872952f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1560264280-88b68371db39?w=400&h=300&fit=crop',
+    'https://picsum.photos/seed/1121/400/300','https://picsum.photos/seed/1122/400/300',
+    'https://picsum.photos/seed/1123/400/300','https://picsum.photos/seed/1124/400/300',
+    'https://picsum.photos/seed/1125/400/300','https://picsum.photos/seed/1126/400/300',
   ],
-  119:[ // Murder planned
-    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1617634577842-b2eddeaea73e?w=400&h=300&fit=crop',
+  119:[ // Murder Planned
+    'https://picsum.photos/seed/1191/400/300','https://picsum.photos/seed/1192/400/300',
+    'https://picsum.photos/seed/1193/400/300','https://picsum.photos/seed/1194/400/300',
+    'https://picsum.photos/seed/1195/400/300','https://picsum.photos/seed/1196/400/300',
   ],
   124:[ // Accomplice
-    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1521791055366-0d553872952f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1588096344992-1dcf4b84bb6a?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=400&h=300&fit=crop',
-    'https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=400&h=300&fit=crop',
+    'https://picsum.photos/seed/1241/400/300','https://picsum.photos/seed/1242/400/300',
+    'https://picsum.photos/seed/1243/400/300','https://picsum.photos/seed/1244/400/300',
+    'https://picsum.photos/seed/1245/400/300','https://picsum.photos/seed/1246/400/300',
   ],
 };
 
@@ -934,7 +892,7 @@ function loadCrimeImages(profile){
             src="${src}"
             alt="Evidence ${i+1}"
             loading="lazy"
-            onerror="this.onerror=null;this.src='https://picsum.photos/seed/${profile.id*10+i}/400/300';"
+            onerror="this.onerror=null;this.src='https://picsum.photos/400/300?random=${profile.id}${i}';"
           />
           <div class="ci-label">EVIDENCE ${String(i+1).padStart(2,'0')} — ${label.toUpperCase()}</div>
         </div>`;
@@ -959,7 +917,7 @@ function buildOthers(myId){
         <span class="cc-stat">${c.status}</span>
       </div>
       <div class="cc-ph">
-        <img class="cc-img" src="photos/${c.id}.png" alt="${c.name}"
+        <img class="cc-img" src="${c.id}.png" alt="${c.name}"
           onerror="this.parentElement.innerHTML='<div class=\\'cc-noph\\'><span>🖼️</span><span>Classified</span></div>'"
         />
         <div class="cc-ov"><span class="dt ${c.dc}">${c.danger}</span></div>
