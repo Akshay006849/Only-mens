@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ONLY MEN'S — Criminal Investigation Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --red:#ff3b50; --orange:#ff7a1a; --yellow:#ffe033;
+  --bg:#0d1120; --bg2:#131a2e; --card:#1a2238; --card2:#1f2a44;
+  --border:#3a4f7a; --text:#f0f4ff; --muted:#c8d6f0; --dim:#8fa3c8;
+  --accent:#5dd4fc; --green:#34e575;
+  --heading:'Oswald',sans-serif; --body:'Inter',sans-serif; --mono:'Roboto Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;font-weight:600;font-size:15px;-webkit-font-smoothing:antialiased;}
+/* All headings bold */
+[style*="font-family:var(--heading)"],.nav-title,.sec-title,.hero-title,.my-name,.cc-name,.cl-title,.lk-title,.popup-title,.m-title,.db-title,.ft-name{font-weight:700!important;}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,0.04) 3px,rgba(0,0,0,0.04) 6px);pointer-events:none;z-index:9999;}
+
+/* PARTICLES */
+.particles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.particle{position:absolute;border-radius:50%;animation:floatP linear infinite;opacity:0;}
+@keyframes floatP{0%{opacity:0;transform:translateY(100vh) scale(0)}10%{opacity:0.5}90%{opacity:0.2}100%{opacity:0;transform:translateY(-10vh) scale(1.2)}}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;background:rgba(13,17,32,0.97);border-bottom:2px solid var(--red);z-index:2000;box-shadow:0 4px 40px rgba(255,59,80,0.2);backdrop-filter:blur(12px);animation:slideDown 0.6s ease both;}
+@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+.nav-top{display:flex;justify-content:space-between;align-items:center;padding:0 24px;height:64px;border-bottom:1px solid var(--border);}
+.nav-left{display:flex;align-items:center;gap:18px;}
+.hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;transition:transform 0.2s;}
+.hamburger span{display:block;width:26px;height:2px;background:#fff;transition:all 0.35s;transform-origin:center;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-title{font-family:var(--heading);font-weight:700;font-size:1.6rem;letter-spacing:3px;color:#fff;text-decoration:none;line-height:1;text-transform:uppercase;}
+.nav-title .om{color:var(--red);}
+.nav-title .ap{color:var(--yellow);}
+.nav-right{display:flex;align-items:center;gap:16px;}
+.nav-status{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:0.7rem;color:var(--green);letter-spacing:2px;}
+.status-dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pdot 1.5s infinite;}
+@keyframes pdot{0%,100%{box-shadow:0 0 0 0 rgba(52,229,117,0.4)}50%{box-shadow:0 0 0 6px rgba(52,229,117,0)}}
+.nav-login-btn{background:linear-gradient(135deg,var(--red),#c0001f);border:none;color:#fff;font-family:var(--heading);font-size:1rem;letter-spacing:4px;padding:10px 24px;cursor:pointer;transition:all 0.3s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);}
+.nav-login-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,59,80,0.5);}
+.nav-login-btn.active{background:linear-gradient(135deg,#166534,#22c55e);}
+.nav-sub{display:flex;align-items:center;padding:0 24px;height:40px;overflow-x:auto;}
+.nav-sub a{font-family:var(--body);font-weight:600;font-size:0.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:0 20px;height:100%;display:flex;align-items:center;border-right:1px solid var(--border);white-space:nowrap;transition:all 0.2s;position:relative;}
+.nav-sub a::after{content:'';position:absolute;bottom:0;left:50%;right:50%;height:2px;background:var(--red);transition:all 0.3s;}
+.nav-sub a:hover{color:#fff;}
+.nav-sub a:hover::after{left:0;right:0;}
+.nav-sub a:first-child{border-left:1px solid var(--border);}
+
+/* SIDE MENU */
+.side-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:3000;opacity:0;pointer-events:none;transition:opacity 0.35s;backdrop-filter:blur(4px);}
+.side-overlay.open{opacity:1;pointer-events:all;}
+.side-menu{position:fixed;top:0;left:-340px;bottom:0;width:300px;background:linear-gradient(180deg,#0e1526,#0d1120);border-right:2px solid var(--red);z-index:3001;transition:left 0.4s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;box-shadow:20px 0 60px rgba(255,59,80,0.15);}
+.side-menu.open{left:0;}
+.side-head{padding:22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.side-logo{font-family:var(--heading);font-size:1.7rem;letter-spacing:5px;color:#fff;}
+.side-logo span{color:var(--red);}
+.side-x{background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;transition:all 0.2s;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.side-x:hover{color:var(--red);background:rgba(255,59,80,0.1);}
+.side-nav{flex:1;padding:16px 0;overflow-y:auto;}
+.side-section{padding:10px 22px 4px;font-family:var(--mono);font-size:0.58rem;color:var(--dim);letter-spacing:4px;text-transform:uppercase;}
+.side-item{display:flex;align-items:center;gap:14px;padding:14px 22px;color:var(--muted);font-family:var(--body);font-weight:700;font-size:0.95rem;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-left:3px solid transparent;transition:all 0.25s;cursor:pointer;background:none;border:none;border-left:3px solid transparent;width:100%;text-align:left;}
+.side-item:hover{color:#fff;background:rgba(255,59,80,0.08);border-left-color:var(--red);padding-left:28px;}
+.side-foot{padding:20px 22px;border-top:1px solid var(--border);font-family:var(--mono);font-size:0.58rem;color:var(--dim);letter-spacing:2px;line-height:2;}
+
+/* ══════════════════════════════════════
+   AUTO POPUP — LOGIN SUGGESTION
+══════════════════════════════════════ */
+.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:4500;display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+.popup-overlay.show{display:flex;animation:fadeIn 0.5s ease;}
+.popup-box{background:var(--card2);border:2px solid var(--red);max-width:480px;width:90%;padding:0;position:relative;box-shadow:0 0 100px rgba(255,59,80,0.4);animation:popIn 0.5s cubic-bezier(0.4,0,0.2,1);overflow:hidden;}
+@keyframes popIn{from{opacity:0;transform:scale(0.7) translateY(40px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.popup-siren{background:linear-gradient(90deg,var(--red),var(--orange));padding:14px 20px;display:flex;align-items:center;gap:12px;animation:sirenBg 0.8s linear infinite;}
+@keyframes sirenBg{0%,100%{background:linear-gradient(90deg,var(--red),var(--orange))}50%{background:linear-gradient(90deg,var(--orange),var(--red))}}
+.popup-siren-icon{font-size:1.8rem;animation:sirenSpin 1s linear infinite;}
+@keyframes sirenSpin{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(10deg)}}
+.popup-siren-text{font-family:var(--heading);font-size:1.1rem;letter-spacing:4px;color:#fff;}
+.popup-body{padding:32px 32px 28px;}
+.popup-close{position:absolute;top:12px;right:14px;background:rgba(0,0,0,0.3);border:none;color:#fff;font-size:1.2rem;cursor:pointer;width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:all 0.2s;}
+.popup-close:hover{background:rgba(255,59,80,0.5);transform:rotate(90deg);}
+.popup-icon{font-size:4rem;display:block;text-align:center;margin-bottom:16px;animation:floatIcon 2s ease infinite;}
+@keyframes floatIcon{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.popup-title{font-family:var(--heading);font-size:2rem;letter-spacing:4px;color:#fff;text-align:center;margin-bottom:8px;}
+.popup-sub{font-family:var(--body);font-size:1rem;font-weight:700;color:var(--muted);text-align:center;line-height:1.6;margin-bottom:24px;}
+.popup-sub strong{color:var(--yellow);}
+.popup-btn{width:100%;background:linear-gradient(135deg,var(--red),var(--orange));border:none;color:#fff;font-family:var(--heading);font-size:1.1rem;letter-spacing:5px;padding:16px;cursor:pointer;transition:all 0.3s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);}
+.popup-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,59,80,0.5);}
+.popup-skip{display:block;text-align:center;margin-top:12px;font-family:var(--mono);font-size:0.65rem;color:var(--dim);cursor:pointer;letter-spacing:2px;transition:color 0.2s;}
+.popup-skip:hover{color:var(--muted);}
+
+/* ══════════════════════════════════════
+   LOGIN MODAL
+══════════════════════════════════════ */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:5000;display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px);}
+.modal-bg.open{display:flex;}
+.modal{background:var(--card2);border:1px solid var(--red);width:100%;max-width:460px;padding:50px 40px;position:relative;box-shadow:0 0 100px rgba(255,59,80,0.3);animation:mpop 0.4s cubic-bezier(0.4,0,0.2,1);clip-path:polygon(16px 0%,100% 0%,100% calc(100% - 16px),calc(100% - 16px) 100%,0% 100%,0% 16px);}
+@keyframes mpop{from{opacity:0;transform:scale(0.85) translateY(30px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-x{position:absolute;top:14px;right:18px;background:none;border:none;color:var(--dim);font-size:1.4rem;cursor:pointer;transition:all 0.2s;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:4px;}
+.modal-x:hover{color:var(--red);background:rgba(255,59,80,0.1);transform:rotate(90deg);}
+.m-icon{font-size:3rem;display:block;text-align:center;margin-bottom:14px;animation:floatIcon 2s ease infinite;}
+.m-title{font-family:var(--heading);font-size:1.8rem;letter-spacing:5px;color:#fff;text-align:center;margin-bottom:4px;}
+.m-sub{font-family:var(--mono);font-size:0.62rem;letter-spacing:3px;color:var(--dim);text-align:center;margin-bottom:32px;}
+.f-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:4px;color:var(--accent);display:block;margin-bottom:6px;}
+.f-input{width:100%;background:var(--bg);border:1px solid var(--border);color:#fff;font-family:var(--mono);font-size:1rem;padding:13px 16px;outline:none;letter-spacing:2px;margin-bottom:18px;transition:all 0.3s;border-radius:2px;}
+.f-input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(255,59,80,0.15);}
+.f-input::placeholder{color:var(--dim);}
+.l-btn{width:100%;background:linear-gradient(135deg,var(--red),var(--orange));border:none;color:#fff;font-family:var(--heading);font-size:1.1rem;letter-spacing:6px;padding:15px;cursor:pointer;transition:all 0.3s;margin-top:4px;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);}
+.l-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,59,80,0.5);}
+.l-err{font-family:var(--mono);font-size:0.68rem;color:var(--red);text-align:center;letter-spacing:2px;margin-top:14px;display:none;animation:shake 0.4s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+
+/* ══════════════════════════════════════
+   SIREN LOCKOUT SCREEN
+══════════════════════════════════════ */
+.lockout{position:fixed;inset:0;background:#000;z-index:9000;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;overflow:hidden;}
+.lockout.open{display:flex;}
+.siren-lights{position:absolute;inset:0;pointer-events:none;}
+.siren-left{position:absolute;top:0;left:0;width:50%;height:100%;background:var(--red);opacity:0;animation:sirenLeft 0.5s ease infinite;}
+.siren-right{position:absolute;top:0;right:0;width:50%;height:100%;background:#1a00ff;opacity:0;animation:sirenRight 0.5s ease infinite;}
+@keyframes sirenLeft{0%,49%,100%{opacity:0}50%,99%{opacity:0.25}}
+@keyframes sirenRight{0%,50%,100%{opacity:0}1%,49%{opacity:0.2}}
+.siren-bars{position:absolute;top:0;left:0;right:0;height:12px;background:repeating-linear-gradient(90deg,var(--red) 0px,var(--red) 20px,#000 20px,#000 40px);animation:moveBars 0.3s linear infinite;}
+.siren-bars-bot{position:absolute;bottom:0;left:0;right:0;height:12px;background:repeating-linear-gradient(90deg,#1a00ff 0px,#1a00ff 20px,#000 20px,#000 40px);animation:moveBars 0.3s linear infinite reverse;}
+@keyframes moveBars{from{background-position:0}to{background-position:40px}}
+.lk-content{position:relative;z-index:2;}
+.lk-icon{font-size:7rem;animation:shk 0.4s ease 3;margin-bottom:24px;}
+@keyframes shk{0%,100%{transform:translateX(0) rotate(0)}25%{transform:translateX(-12px) rotate(-5deg)}75%{transform:translateX(12px) rotate(5deg)}}
+.lk-badge{display:inline-block;background:var(--red);color:#fff;font-family:var(--heading);font-size:0.8rem;letter-spacing:6px;padding:6px 20px;margin-bottom:16px;animation:pulse 1s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.6}}
+.lk-title{font-family:var(--heading);font-size:clamp(2rem,6vw,4rem);letter-spacing:3px;color:#fff;text-shadow:0 0 40px var(--red),0 0 80px var(--red);margin-bottom:10px;animation:fadeIn 0.4s 0.3s both;}
+.lk-sub{font-family:var(--mono);font-size:0.78rem;color:var(--muted);letter-spacing:3px;line-height:2.2;margin-bottom:40px;animation:fadeIn 0.4s 0.6s both;}
+.lk-id{font-family:var(--heading);font-size:1rem;letter-spacing:4px;color:var(--yellow);margin-bottom:30px;animation:blink 1s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.lk-back{background:transparent;border:1px solid var(--border);color:var(--muted);font-family:var(--body);font-weight:600;font-size:0.8rem;letter-spacing:4px;padding:12px 32px;cursor:pointer;transition:all 0.3s;animation:fadeIn 0.4s 1s both;}
+.lk-back:hover{border-color:var(--red);color:var(--red);}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+.hero{min-height:100vh;padding:160px 40px 80px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;background:radial-gradient(ellipse at 15% 40%,rgba(255,59,80,0.12) 0%,transparent 55%),radial-gradient(ellipse at 85% 60%,rgba(93,212,252,0.05) 0%,transparent 55%),var(--bg);z-index:1;}
+.hero-eye{font-family:var(--mono);font-size:0.72rem;letter-spacing:6px;color:var(--accent);text-transform:uppercase;margin-bottom:24px;opacity:0;animation:fadeUp 0.8s ease 0.3s forwards;display:flex;align-items:center;gap:12px;}
+.hero-eye::before,.hero-eye::after{content:'';flex:1;height:1px;max-width:80px;}
+.hero-eye::before{background:linear-gradient(90deg,transparent,var(--accent));}
+.hero-eye::after{background:linear-gradient(90deg,var(--accent),transparent);}
+.hero-title{font-family:var(--heading);font-weight:700;font-size:clamp(3.5rem,9vw,8rem);line-height:1;color:#fff;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;opacity:0;animation:fadeUp 0.8s ease 0.5s forwards;}
+.hero-title .r{color:var(--red);text-shadow:0 0 40px rgba(255,59,80,0.5),0 0 80px rgba(255,59,80,0.2);}
+.hero-sub{font-family:var(--heading);font-size:clamp(1rem,2.5vw,1.8rem);letter-spacing:4px;color:var(--yellow);margin-bottom:36px;opacity:0;animation:fadeUp 0.8s ease 0.7s forwards;}
+.hero-line{width:240px;height:1px;margin:0 auto 28px;background:linear-gradient(90deg,transparent,var(--red),var(--orange),transparent);opacity:0;animation:fadeIn 0.8s ease 0.9s forwards;}
+.hero-desc{font-family:var(--body);font-size:1.05rem;font-weight:700;color:var(--muted);letter-spacing:1px;max-width:540px;line-height:1.8;opacity:0;animation:fadeIn 0.8s ease 1.1s forwards;}
+.hero-stats{display:flex;gap:60px;margin-top:60px;opacity:0;animation:fadeUp 0.8s ease 1.3s forwards;}
+.st{text-align:center;}
+.st-n{font-family:var(--heading);font-size:3.5rem;color:var(--red);letter-spacing:3px;display:block;line-height:1;text-shadow:0 0 20px rgba(255,59,80,0.4);}
+.st-l{font-family:var(--mono);font-size:0.6rem;letter-spacing:3px;color:var(--dim);text-transform:uppercase;margin-top:4px;}
+.hero-cta{margin-top:48px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center;opacity:0;animation:fadeUp 0.8s ease 1.5s forwards;}
+.btn-primary{background:linear-gradient(135deg,var(--red),var(--orange));border:none;color:#fff;font-family:var(--heading);font-size:1.1rem;letter-spacing:5px;padding:16px 44px;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,59,80,0.5);}
+.btn-outline{background:transparent;border:1px solid var(--accent);color:var(--accent);font-family:var(--heading);font-size:1.1rem;letter-spacing:5px;padding:16px 44px;cursor:pointer;transition:all 0.3s;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);}
+.btn-outline:hover{background:rgba(93,212,252,0.1);transform:translateY(-3px);}
+.scroll-h{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--mono);font-size:0.6rem;letter-spacing:3px;color:var(--dim);animation:scrollB 2s infinite;}
+.scroll-h .arr{font-size:1.2rem;color:var(--red);}
+@keyframes scrollB{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* TICKER */
+.ticker-wrap{background:linear-gradient(90deg,var(--red),var(--orange),var(--red));background-size:200% 100%;animation:gradS 4s linear infinite;padding:10px 0;overflow:hidden;position:relative;z-index:1;}
+@keyframes gradS{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+.ticker{display:flex;white-space:nowrap;animation:tick 30s linear infinite;}
+.ticker span{font-family:var(--body);font-weight:700;font-size:0.78rem;letter-spacing:3px;text-transform:uppercase;color:#fff;padding:0 40px;}
+.ticker span::before{content:'◆  ';}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* NEWS */
+.news-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.sec{padding:80px 40px;max-width:1200px;margin:0 auto;position:relative;z-index:1;}
+.sec-label{font-family:var(--mono);font-size:0.65rem;letter-spacing:5px;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:10px;}
+.sec-title{font-family:var(--heading);font-weight:700;font-size:clamp(1.6rem,4vw,2.6rem);color:#fff;letter-spacing:2px;text-transform:uppercase;margin-bottom:50px;position:relative;display:inline-block;}
+.sec-title::after{content:'';position:absolute;bottom:-8px;left:0;width:60px;height:3px;background:linear-gradient(90deg,var(--red),var(--orange));border-radius:2px;}
+.news-grid{display:grid;grid-template-columns:1.8fr 1fr;gap:16px;}
+.nc{background:var(--card);border:1px solid var(--border);padding:28px;position:relative;overflow:hidden;transition:all 0.35s;}
+.nc:hover{border-color:var(--red);transform:translateY(-4px);box-shadow:0 16px 40px rgba(255,59,80,0.12);}
+.nc::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:linear-gradient(180deg,var(--red),var(--orange));transition:height 0.4s;}
+.nc:hover::before{height:100%;}
+.nc.feat::before{width:100%;height:3px;}
+.nc.feat:hover::before{width:100%;height:3px;}
+.n-tag{font-family:var(--mono);font-size:0.6rem;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:10px;display:block;}
+.n-head{font-family:var(--heading);font-weight:700;font-size:1.3rem;letter-spacing:1px;color:#fff;line-height:1.3;margin-bottom:12px;}
+.nc.feat .n-head{font-size:1.7rem;}
+.n-body{font-family:var(--body);font-size:1rem;font-weight:700;color:var(--muted);line-height:1.7;}
+.n-meta{margin-top:18px;font-family:var(--mono);font-size:0.65rem;color:var(--muted);letter-spacing:2px;display:flex;gap:16px;flex-wrap:wrap;}
+.ns{display:flex;flex-direction:column;gap:16px;}
+.nc.sm{padding:20px;}
+.nc.sm .n-head{font-size:1.1rem;}
+
+/* STATS */
+.stats-bg{background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 40px;position:relative;z-index:1;}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;max-width:1200px;margin:0 auto;}
+.sb{background:var(--card);padding:40px 24px;text-align:center;border:1px solid var(--border);position:relative;overflow:hidden;transition:all 0.35s;}
+.sb:hover{border-color:var(--red);transform:translateY(-6px);box-shadow:0 16px 40px rgba(255,59,80,0.15);}
+.sb-n{font-family:var(--heading);font-size:3.2rem;color:var(--red);letter-spacing:3px;display:block;line-height:1;text-shadow:0 0 20px rgba(255,59,80,0.3);}
+.sb-l{font-family:var(--mono);font-size:0.68rem;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-top:10px;display:block;}
+.sb-bar{position:absolute;bottom:0;left:0;height:3px;background:linear-gradient(90deg,var(--red),var(--orange));animation:growBar 2.5s ease forwards;}
+@keyframes growBar{from{width:0}to{width:var(--w)}}
+
+/* CLASSIFIED BOX */
+.cl-wrap{padding:100px 40px;background:radial-gradient(ellipse at center,rgba(255,59,80,0.06) 0%,transparent 65%),var(--bg);border-top:1px solid var(--border);position:relative;z-index:1;}
+.cl-inner{max-width:720px;margin:0 auto;text-align:center;}
+.cl-box{border:1px solid var(--red);padding:60px 40px;background:var(--card);position:relative;box-shadow:0 0 80px rgba(255,59,80,0.1),inset 0 0 60px rgba(0,0,0,0.3);animation:gpulse 3s ease infinite;}
+@keyframes gpulse{0%,100%{box-shadow:0 0 80px rgba(255,59,80,0.1),inset 0 0 60px rgba(0,0,0,0.3)}50%{box-shadow:0 0 120px rgba(255,59,80,0.22),inset 0 0 60px rgba(0,0,0,0.3)}}
+.cl-box::before{content:'CLASSIFIED';position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-family:var(--heading);font-size:0.85rem;letter-spacing:6px;padding:4px 24px;}
+.cl-box::after{content:'';position:absolute;top:12px;left:12px;right:12px;bottom:12px;border:1px solid rgba(255,59,80,0.18);pointer-events:none;}
+.cl-icon{font-size:5rem;display:block;margin-bottom:20px;animation:flt 3s ease infinite;}
+@keyframes flt{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+.cl-title{font-family:var(--heading);font-size:2.4rem;letter-spacing:6px;color:#fff;margin-bottom:16px;text-shadow:0 0 30px rgba(255,59,80,0.3);}
+.cl-desc{font-family:var(--body);font-size:1.05rem;font-weight:700;color:var(--muted);line-height:1.8;margin-bottom:32px;}
+.cl-desc strong{color:var(--red);font-weight:700;}
+.op-btn{background:transparent;border:2px solid var(--red);color:var(--red);font-family:var(--heading);font-size:1.1rem;letter-spacing:6px;padding:16px 50px;cursor:pointer;position:relative;overflow:hidden;transition:color 0.3s;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);}
+.op-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(135deg,var(--red),var(--orange));transition:left 0.35s;z-index:-1;}
+.op-btn:hover{color:#fff;box-shadow:0 8px 24px rgba(255,59,80,0.4);}
+.op-btn:hover::before{left:0;}
+
+/* ══════════════════════════════════════
+   PERSONAL CRIME PAGE
+══════════════════════════════════════ */
+.crime-page{display:none;padding:110px 24px 60px;max-width:900px;margin:0 auto;position:relative;z-index:1;}
+.crime-page.open{display:block;animation:fadeIn 0.6s ease;}
+
+/* MY PROFILE CARD */
+.my-profile{border:2px solid var(--red);background:var(--card);overflow:hidden;margin-bottom:40px;box-shadow:0 0 60px rgba(255,59,80,0.15);animation:fadeUp 0.6s ease both;}
+.my-profile-top{background:linear-gradient(90deg,var(--red),var(--orange));padding:14px 20px;display:flex;align-items:center;justify-content:space-between;}
+.my-profile-top .case{font-family:var(--mono);font-size:0.7rem;color:#fff;letter-spacing:3px;}
+.my-profile-top .status{font-family:var(--heading);font-size:0.9rem;letter-spacing:3px;color:#fff;}
+.my-profile-body{display:grid;grid-template-columns:260px 1fr;gap:0;}
+.my-photo-wrap{position:relative;height:320px;overflow:hidden;background:var(--bg);}
+.my-photo{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(20%) contrast(1.1);}
+.my-photo-noph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:var(--bg2);}
+.my-photo-noph span:first-child{font-size:4rem;opacity:0.2;}
+.my-photo-noph span:last-child{font-family:var(--mono);font-size:0.65rem;letter-spacing:3px;color:var(--dim);}
+.my-stamp{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-family:var(--heading);font-size:1.2rem;letter-spacing:4px;padding:6px 16px;color:var(--red);border:3px solid var(--red);background:rgba(0,0,0,0.7);white-space:nowrap;}
+.my-info{padding:28px;}
+.my-catching{background:linear-gradient(90deg,#3d0010,var(--red),#3d0010);background-size:200%;animation:gradS 2s linear infinite,pulseOp 1.5s ease infinite;padding:10px 16px;font-family:var(--heading);font-size:0.85rem;letter-spacing:4px;color:#fff;text-align:center;margin-bottom:16px;}
+.my-catching.police{background:linear-gradient(90deg,#001066,#1d4ed8,#001066);}
+@keyframes pulseOp{0%,100%{opacity:1}50%{opacity:0.7}}
+.my-name{font-family:var(--heading);font-weight:700;font-size:1.8rem;letter-spacing:2px;color:#fff;text-transform:uppercase;margin-bottom:4px;}
+.my-alias{font-family:var(--mono);font-weight:700;font-size:0.72rem;color:var(--red);letter-spacing:2px;margin-bottom:18px;}
+.my-crimes-list{list-style:none;margin-bottom:16px;}
+.my-crimes-list li{font-family:var(--body);font-size:0.98rem;font-weight:700;color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:8px;line-height:1.4;}
+.my-crimes-list li::before{content:'▸';color:var(--red);flex-shrink:0;margin-top:3px;}
+.my-desc{font-family:var(--body);font-size:0.98rem;font-weight:700;color:var(--muted);line-height:1.7;padding-top:12px;border-top:1px solid var(--border);}
+
+/* CRIME IMAGES SECTION */
+.crime-images-section{margin-bottom:40px;animation:fadeUp 0.6s 0.2s ease both;}
+.ci-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.ci-title{font-family:var(--heading);font-size:1.8rem;letter-spacing:4px;color:#fff;}
+.ci-tag{font-family:var(--mono);font-size:0.6rem;letter-spacing:3px;color:var(--accent);background:rgba(93,212,252,0.1);border:1px solid rgba(93,212,252,0.3);padding:4px 10px;}
+.ci-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.ci-card{position:relative;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3;background:var(--card);transition:all 0.3s;cursor:pointer;}
+.ci-card:hover{border-color:var(--red);transform:scale(1.03);box-shadow:0 8px 24px rgba(255,59,80,0.2);}
+.ci-img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%) contrast(1.05);transition:filter 0.3s;}
+.ci-card:hover .ci-img{filter:grayscale(0%) contrast(1.1);}
+.ci-label{position:absolute;bottom:0;left:0;right:0;padding:8px;background:linear-gradient(transparent,rgba(0,0,0,0.9));font-family:var(--mono);font-size:0.55rem;color:var(--muted);letter-spacing:1px;text-align:center;}
+.ci-loading{display:flex;align-items:center;justify-content:center;gap:10px;padding:40px;background:var(--card);border:1px solid var(--border);}
+.ci-loading span{font-family:var(--mono);font-size:0.75rem;color:var(--dim);letter-spacing:2px;animation:blink 1s infinite;}
+.ci-spinner{width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--red);border-radius:50%;animation:spin 0.8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ci-error{text-align:center;padding:30px;background:var(--card);border:1px solid var(--border);}
+.ci-error p{font-family:var(--mono);font-size:0.72rem;color:var(--dim);letter-spacing:2px;}
+.ci-search-link{display:inline-block;margin-top:12px;font-family:var(--body);font-weight:700;font-size:0.85rem;color:var(--accent);text-decoration:none;letter-spacing:2px;border:1px solid var(--accent);padding:8px 20px;transition:all 0.2s;}
+.ci-search-link:hover{background:rgba(93,212,252,0.1);}
+
+/* OTHER CRIMINALS SECTION */
+.others-section{animation:fadeUp 0.6s 0.3s ease both;}
+.others-title{font-family:var(--heading);font-size:1.8rem;letter-spacing:4px;color:#fff;margin-bottom:20px;display:flex;align-items:center;gap:14px;}
+.others-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent);}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.cc{background:var(--card);border:1px solid var(--border);position:relative;overflow:hidden;transition:all 0.35s;animation:fadeUp 0.5s ease both;cursor:pointer;}
+.cc:hover{border-color:var(--red);transform:translateY(-6px);box-shadow:0 20px 50px rgba(255,59,80,0.2);}
+.cc:active{transform:translateY(-2px);}
+.cc.pri{border-color:var(--red);box-shadow:0 0 30px rgba(255,59,80,0.2);}
+.cc.pol{border-color:var(--accent);box-shadow:0 0 30px rgba(93,212,252,0.15);}
+.cc-top{background:linear-gradient(90deg,var(--red),#c0001f);padding:7px 14px;display:flex;justify-content:space-between;align-items:center;}
+.cc-top.pb{background:linear-gradient(90deg,#1d4ed8,#1e40af);}
+.cc-case{font-family:var(--mono);font-size:0.62rem;color:#fff;letter-spacing:2px;}
+.cc-stat{font-family:var(--mono);font-size:0.58rem;color:rgba(255,255,255,0.8);letter-spacing:2px;}
+.cc-ph{position:relative;height:180px;overflow:hidden;background:var(--bg);display:flex;align-items:center;justify-content:center;}
+.cc-img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(50%) contrast(1.1);transition:all 0.5s;}
+.cc:hover .cc-img{filter:grayscale(0%) contrast(1.1);}
+.cc-noph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:var(--bg2);}
+.cc-noph span:first-child{font-size:2.5rem;opacity:0.2;}
+.cc-noph span:last-child{font-family:var(--mono);font-size:0.55rem;letter-spacing:2px;color:var(--dim);}
+.cc-ov{position:absolute;bottom:0;left:0;right:0;padding:8px 12px;background:linear-gradient(transparent,rgba(13,17,32,0.9));display:flex;justify-content:flex-end;}
+.dt{font-family:var(--heading);font-size:0.72rem;letter-spacing:2px;padding:3px 10px;}
+.de{background:linear-gradient(135deg,var(--red),var(--orange));color:#fff;}
+.dh{background:var(--orange);color:#fff;}
+.dm{background:#1a0a00;color:var(--yellow);border:1px solid var(--yellow);}
+.dl{background:rgba(255,255,255,0.08);color:var(--muted);}
+.da{background:linear-gradient(135deg,#1d4ed8,#38bdf8);color:#fff;}
+.cc-stamp{position:absolute;top:188px;right:10px;border:2px solid var(--red);color:var(--red);font-family:var(--heading);font-size:0.72rem;letter-spacing:3px;padding:3px 8px;transform:rotate(14deg);opacity:0.85;}
+.cc-stamp.ps{border-color:var(--accent);color:var(--accent);transform:rotate(-10deg);}
+.cc-body{padding:16px;}
+.cc-name{font-family:var(--heading);font-weight:700;font-size:1.1rem;letter-spacing:2px;color:#fff;text-transform:uppercase;margin-bottom:3px;}
+.cc-alias{font-family:var(--mono);font-size:0.58rem;color:var(--red);letter-spacing:3px;margin-bottom:10px;}
+.cc-crimes{list-style:none;margin-bottom:10px;}
+.cc-crimes li{font-family:var(--body);font-size:0.88rem;font-weight:700;color:var(--muted);padding:4px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:6px;line-height:1.3;}
+.cc-crimes li::before{content:'▸';color:var(--red);font-size:0.58rem;flex-shrink:0;margin-top:3px;}
+.db-out{display:block;margin:44px auto 0;background:transparent;border:1px solid var(--border);color:var(--muted);font-family:var(--body);font-weight:600;font-size:0.8rem;letter-spacing:4px;padding:12px 32px;cursor:pointer;transition:all 0.3s;text-transform:uppercase;}
+.db-out:hover{border-color:var(--red);color:var(--red);}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:50px 40px;text-align:center;position:relative;z-index:1;}
+.ft-name{font-family:var(--heading);font-weight:700;font-size:2rem;letter-spacing:4px;background:linear-gradient(90deg,var(--red),var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px;}
+.ft-copy{font-family:var(--mono);font-size:0.58rem;color:var(--dim);letter-spacing:2px;}
+
+/* UTILS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.glitch{animation:glitch 5s infinite;}
+@keyframes glitch{0%,92%,100%{text-shadow:none}93%{text-shadow:4px 0 var(--red),-4px 0 var(--accent)}94%{text-shadow:-4px 0 var(--red),4px 0 var(--accent)}95%{text-shadow:none}96%{text-shadow:4px 4px var(--orange)}97%{text-shadow:none}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:768px){
+  .nav-status{display:none}
+  .nav-title{font-size:1.5rem}
+  .hero{padding:140px 20px 60px}
+  .hero-stats{gap:24px}
+  .news-grid{grid-template-columns:1fr}
+  .sg{grid-template-columns:repeat(2,1fr)}
+  .sec{padding:60px 20px}
+  .crime-page{padding:110px 16px 60px}
+  .my-profile-body{grid-template-columns:1fr}
+  .my-photo-wrap{height:240px}
+  .ci-grid{grid-template-columns:repeat(2,1fr)}
+  .cg{grid-template-columns:1fr}
+  .modal{margin:16px;padding:36px 20px}
+  .hero-cta{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<div class="particles" id="particles"></div>
+<div class="side-overlay" id="sideOverlay" onclick="closeSide()"></div>
+
+<!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+  <div class="side-head">
+    <div class="side-logo"><span>ONLY</span> MEN'S</div>
+    <button class="side-x" onclick="closeSide()">✕</button>
+  </div>
+  <div class="side-nav">
+    <div class="side-section">Navigation</div>
+    <a class="side-item" onclick="closeSide();goTo('home')"><span>🏠</span>Home</a>
+    <a class="side-item" onclick="closeSide();goTo('news')"><span>📰</span>Crime News</a>
+    <a class="side-item" onclick="closeSide();goTo('stats')"><span>📊</span>Statistics</a>
+    <a class="side-item" onclick="closeSide();goTo('classified')"><span>🗂️</span>Classified Files</a>
+    <div class="side-section" style="margin-top:16px">Access</div>
+    <button class="side-item" onclick="closeSide();openModal()"><span>🔐</span>Login to Database</button>
+    <button class="side-item" id="sideOut" style="display:none" onclick="closeSide();logout()"><span>🚪</span>Logout</button>
+  </div>
+  <div class="side-foot">BENGALURU CRIME INVESTIGATION PORTAL<br>SPECIAL CRIMES UNIT — 2026<br>UNAUTHORIZED ACCESS IS PROHIBITED</div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-top">
+    <div class="nav-left">
+      <button class="hamburger" id="ham" onclick="toggleSide()"><span></span><span></span><span></span></button>
+      <a href="#home" class="nav-title"><span class="om">ONLY</span> MEN<span class="ap">'</span>S</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-status"><div class="status-dot"></div>SYSTEM LIVE</div>
+      <button class="nav-login-btn" id="navBtn" onclick="openModal()">🔐 LOGIN</button>
+    </div>
+  </div>
+  <div class="nav-sub">
+    <a href="#home">Home</a>
+    <a href="#news">Crime News</a>
+    <a href="#stats">Statistics</a>
+    <a href="#classified">Classified</a>
+  </div>
+</nav>
+
+<!-- ════ AUTO POPUP ════ -->
+<div class="popup-overlay" id="autoPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <div class="popup-siren">
+      <span class="popup-siren-icon">🚨</span>
+      <span class="popup-siren-text">CLASSIFIED DATABASE ALERT</span>
+      <span class="popup-siren-icon">🚨</span>
+    </div>
+    <div class="popup-body">
+      <span class="popup-icon">🗂️</span>
+      <div class="popup-title">ONLY MEN'S</div>
+      <p class="popup-sub">
+        You have entered the <strong>Bengaluru Crime Investigation Portal</strong>.<br><br>
+        Classified criminal files are available to <strong>authorized personnel only</strong>.<br>
+        Login with your credentials to access the full database.
+      </p>
+      <button class="popup-btn" onclick="closePopup();openModal()">🔐 LOGIN TO VIEW CRIMINALS</button>
+      <span class="popup-skip" onclick="closePopup()">SKIP — CONTINUE AS GUEST</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════ LOGIN MODAL ════ -->
+<div class="modal-bg" id="loginModal">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+    <span class="m-icon">🔐</span>
+    <div class="m-title">Access Verification</div>
+    <div class="m-sub">ONLY MEN'S — CLASSIFIED DATABASE</div>
+    <label class="f-label">Authorized Email ID</label>
+    <input type="email" class="f-input" id="lEmail" placeholder=""/>
+    <label class="f-label">Access Code</label>
+    <input type="password" class="f-input" id="lPass" placeholder=""/>
+    <button class="l-btn" onclick="tryLogin()">▶ VERIFY &amp; ENTER</button>
+    <div class="l-err" id="lErr">⛔ ACCESS DENIED — EMAIL NOT RECOGNIZED</div>
+  </div>
+</div>
+
+<!-- ════ SIREN LOCKOUT ════ -->
+<div class="lockout" id="lockout">
+  <div class="siren-lights">
+    <div class="siren-left"></div>
+    <div class="siren-right"></div>
+  </div>
+  <div class="siren-bars"></div>
+  <div class="siren-bars-bot"></div>
+  <div class="lk-content">
+    <div class="lk-icon">🚔</div>
+    <div class="lk-badge">SECURITY ALERT</div>
+    <div class="lk-title">ACCESS DENIED</div>
+    <div class="lk-sub" id="lkSub">
+      UNAUTHORIZED ACCESS ATTEMPT DETECTED<br>
+      IDENTITY NOT FOUND IN SYSTEM<br>
+      THIS INCIDENT HAS BEEN LOGGED &amp; REPORTED
+    </div>
+    <div class="lk-id" id="lkId">⚠ UNKNOWN IDENTITY — THREAT LEVEL: HIGH</div>
+    <button class="lk-back" onclick="closeLockout()">◀ RETURN TO PORTAL</button>
+  </div>
+</div>
+
+<!-- ════ HERO ════ -->
+<div class="hero" id="home">
+  <div class="hero-eye">BENGALURU SPECIAL CRIMES INVESTIGATION UNIT</div>
+  <h1 class="hero-title glitch"><span class="r">ONLY</span><br>MEN'S</h1>
+  <div class="hero-sub">Criminal Investigation Portal</div>
+  <div class="hero-line"></div>
+  <p class="hero-desc">Classified criminal database and live investigation records for the Bengaluru metropolitan division. Authorized personnel access only.</p>
+  <div class="hero-stats">
+    <div class="st"><span class="st-n">2,847</span><span class="st-l">Active Cases</span></div>
+    <div class="st"><span class="st-n">143</span><span class="st-l">Most Wanted</span></div>
+    <div class="st"><span class="st-n">89%</span><span class="st-l">Solve Rate</span></div>
+  </div>
+  <div class="hero-cta">
+    <button class="btn-primary" onclick="openModal()">🔓 OPEN CLASSIFIED FILE</button>
+    <button class="btn-outline" onclick="goTo('news')">VIEW CRIME REPORTS</button>
+  </div>
+  <div class="scroll-h"><span class="arr">↓</span><span>SCROLL DOWN</span></div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>BREAKING: Major drug bust in Koramangala</span>
+    <span>ALERT: Bank robbery suspect at large in Whitefield</span>
+    <span>WARNING: Ragging cases in North Bengaluru colleges</span>
+    <span>UPDATE: Money laundering ring dismantled — Electronic City</span>
+    <span>NOTICE: Weapon smuggling operation under investigation</span>
+    <span>BREAKING: Psycho killer sighting — do NOT approach</span>
+    <span>BREAKING: Major drug bust in Koramangala</span>
+    <span>ALERT: Bank robbery suspect at large in Whitefield</span>
+    <span>WARNING: Ragging cases in North Bengaluru colleges</span>
+    <span>UPDATE: Money laundering ring dismantled — Electronic City</span>
+    <span>NOTICE: Weapon smuggling operation under investigation</span>
+    <span>BREAKING: Psycho killer sighting — do NOT approach</span>
+  </div>
+</div>
+
+<!-- NEWS -->
+<div class="news-wrap" id="news">
+  <div class="sec">
+    <span class="sec-label">◆ Latest Reports</span>
+    <h2 class="sec-title reveal">Bengaluru Crime Reports</h2>
+    <div class="news-grid">
+      <div class="nc feat reveal">
+        <span class="n-tag">◆ FEATURED — PRIORITY ALERT</span>
+        <h3 class="n-head">Multi-Million Criminal Network Uncovered in Bengaluru's Tech Corridor</h3>
+        <p class="n-body">Bengaluru police have cracked open a sprawling criminal syndicate involving drug distribution, illegal financial operations, weapon trafficking, and multiple homicide cases. Special Crimes Unit confirms multiple arrests are imminent.</p>
+        <div class="n-meta"><span>📅 APRIL 2026</span><span>📍 BENGALURU</span><span>⚠️ CRITICAL</span></div>
+      </div>
+      <div class="ns">
+        <div class="nc sm reveal"><span class="n-tag">◆ NARCOTICS</span><h3 class="n-head">Drug Ring Near Colleges — 3 Arrested</h3><p class="n-body">Police seized contraband worth ₹40 lakhs targeting students in North Bengaluru.</p><div class="n-meta"><span>📅 MARCH 2026</span></div></div>
+        <div class="nc sm reveal"><span class="n-tag">◆ BANKING FRAUD</span><h3 class="n-head">Digital Heist — ₹2.3 Cr Siphoned Overnight</h3><p class="n-body">Sophisticated ATM network breach with suspected inside knowledge.</p><div class="n-meta"><span>📅 FEBRUARY 2026</span></div></div>
+        <div class="nc sm reveal"><span class="n-tag">◆ HOMICIDE</span><h3 class="n-head">Double Murder — Manhunt Active</h3><p class="n-body">South Bengaluru police hunting two individuals in premeditated double murder.</p><div class="n-meta"><span>📅 JANUARY 2026</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bg" id="stats">
+  <div style="text-align:center;margin-bottom:44px;padding:0 40px">
+    <span class="sec-label" style="display:block;margin-bottom:8px">◆ 2025–2026 Data</span>
+    <h2 class="sec-title reveal" style="margin-bottom:0">Crime Statistics</h2>
+  </div>
+  <div class="sg">
+    <div class="sb reveal"><span class="sb-n">₹12Cr</span><span class="sb-l">Drug Seizures</span><div class="sb-bar" style="--w:80%"></div></div>
+    <div class="sb reveal"><span class="sb-n">347</span><span class="sb-l">Financial Crimes</span><div class="sb-bar" style="--w:65%"></div></div>
+    <div class="sb reveal"><span class="sb-n">89</span><span class="sb-l">Weapons Seized</span><div class="sb-bar" style="--w:45%"></div></div>
+    <div class="sb reveal"><span class="sb-n">1,204</span><span class="sb-l">Total Arrests</span><div class="sb-bar" style="--w:90%"></div></div>
+  </div>
+</div>
+
+<!-- CLASSIFIED -->
+<div class="cl-wrap" id="classified">
+  <div class="cl-inner">
+    <span class="sec-label" style="display:block;margin-bottom:8px">◆ Restricted Access</span>
+    <h2 class="sec-title reveal">Classified Files</h2>
+    <div class="cl-box reveal">
+      <span class="cl-icon">🗂️</span>
+      <h3 class="cl-title">OPERATION: ONLY MEN'S</h3>
+      <p class="cl-desc">This file contains classified profiles of <strong>14 identified suspects</strong> linked to active criminal operations across Bengaluru. Access restricted to authorized personnel only.<br><br>Unauthorized attempts are <strong>logged and prosecuted</strong> under Section 66 of the IT Act.</p>
+      <button class="op-btn" onclick="openModal()">🔓 OPEN CLASSIFIED FILE</button>
+    </div>
+  </div>
+</div>
+
+<!-- PERSONAL CRIME PAGE -->
+<div class="crime-page" id="crimePage">
+
+  <!-- MY PROFILE -->
+  <div class="my-profile" id="myProfile"></div>
+
+  <!-- CRIME IMAGES FROM INTERNET -->
+  <div class="crime-images-section">
+    <div class="ci-header">
+      <div class="ci-title">CRIME SCENE EVIDENCE</div>
+      <div class="ci-tag">LIVE FROM INTERNET</div>
+    </div>
+    <div id="crimeImages"></div>
+  </div>
+
+  <!-- OTHER CRIMINALS -->
+  <div class="others-section">
+    <div class="others-title">OTHER CRIMINALS ON FILE</div>
+    <div class="cg" id="othersGrid"></div>
+  </div>
+
+  <button class="db-out" onclick="logout()">◀ CLOSE DATABASE &amp; LOGOUT</button>
+</div>
+
+<footer>
+  <div class="ft-name">ONLY MEN'S</div>
+  <p class="ft-copy">© 2026 BENGALURU CRIME INVESTIGATION PORTAL — SPECIAL CRIMES UNIT — ALL RIGHTS RESERVED</p>
+</footer>
+
+<script>
+/* ── PARTICLES ── */
+(function(){
+  const w=document.getElementById('particles');
+  const c=['255,59,80','255,122,26','255,224,51','93,212,252'];
+  for(let i=0;i<40;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    const s=Math.random()*4+1, col=c[Math.floor(Math.random()*c.length)];
+    p.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;background:rgba(${col},${Math.random()*0.4+0.1});animation-duration:${Math.random()*20+10}s;animation-delay:${Math.random()*15}s;box-shadow:0 0 ${s*3}px rgba(${col},0.5);`;
+    w.appendChild(p);
+  }
+})();
+
+/* ── SCROLL REVEAL ── */
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible');})},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ── AUTH ── */
+const EMAILS=[
+  '1ep22is007@eastpoint.ac.in','1ep22is006@eastpoint.ac.in',
+  '1ep22is040@eastpoint.ac.in','1ep22is043@eastpoint.ac.in',
+  '1ep22is061@eastpoint.ac.in','1ep22is064@eastpoint.ac.in',
+  '1ep22is081@eastpoint.ac.in','1ep22is088@eastpoint.ac.in',
+  '1ep22is084@eastpoint.ac.in','1ep22is106@eastpoint.ac.in',
+  '1ep22is108@eastpoint.ac.in','1ep22is112@eastpoint.ac.in',
+  '1ep22is119@eastpoint.ac.in','1ep22is124@eastpoint.ac.in'
+];
+
+function getId(e){const m=e.match(/1ep22is(\d+)@/);return m?parseInt(m[1]):null;}
+
+/* ── CRIMINAL DATA ── */
+const DATA=[
+  {id:6,name:'Akhilesh R',alias:'"THE PREDATOR"',danger:'HIGH',dc:'dh',status:'AT LARGE',cid:'BLR-2026-006',pol:false,
+   searchQuery:'college ragging harassment india',searchLabel:'Ragging Cases — India',
+   crimes:['Serial ragging & harassment of female students','Intimidation and psychological abuse of juniors','Organizing ragging rings within campus premises','Multiple FIRs filed — evaded arrest twice','Witness tampering in ongoing investigation'],
+   desc:'Akhilesh R, known as "The Predator," is the alleged ringleader of a systematic ragging operation targeting female students. Despite multiple complaints, he has evaded formal action through witness intimidation.'},
+  {id:7,name:'Akshay Kumar D',alias:'"THE GHOST SCAMMER"',danger:'HIGH',dc:'dh',status:'AT LARGE',cid:'BLR-2026-007',pol:false,
+   searchQuery:'online scam fraud arrest india',searchLabel:'Online Fraud Cases — India',
+   crimes:['Mass online fraud — 200+ victims identified','Identity theft and impersonation across platforms','Phishing operations targeting college networks','Fake investment scheme worth ₹18 lakhs','Digital payment fraud — multiple SIM cards seized'],
+   desc:'Operating under multiple fake identities, Akshay Kumar D has defrauded over 200 individuals. Cybercrime branch rates him as one of the most technically sophisticated fraudsters in Bengaluru.'},
+  {id:40,name:'H Vikram Kumar',alias:'"THE EMPEROR"',danger:'EXTREME',dc:'de',status:'UNDER SURVEILLANCE',cid:'BLR-2026-040',pol:false,
+   searchQuery:'illegal business empire arrest india',searchLabel:'Illegal Business Busts — India',
+   crimes:['Running three illegal business fronts simultaneously','Tax evasion worth ₹3.2 crore — documented','Bribing public officials — 6 arrested','Smuggling counterfeit goods through city logistics','Extortion of 14 local business owners'],
+   desc:'"The Emperor" runs a sophisticated network of illegal businesses disguised as legitimate enterprises. Economic Offences Wing considers him one of the most dangerous white-collar criminals in Bengaluru.'},
+  {id:43,name:'Hithesh G V',alias:'"VAULT BREAKER"',danger:'EXTREME',dc:'de',status:'WANTED',cid:'BLR-2026-043',pol:false,
+   searchQuery:'bank robbery india caught',searchLabel:'Bank Robbery Cases — India',
+   crimes:['Armed bank robbery — Koramangala branch (₹47 lakhs)','Forged documents to infiltrate bank security','Assault of two security guards','Accomplice network — 4 members unidentified','Previous conviction: ATM skimming (2023)'],
+   desc:'Hithesh G V is prime suspect in the Koramangala bank robbery. Known for meticulous planning, he spent weeks studying bank routines. Armed and dangerous — do NOT approach without police backup.'},
+  {id:61,name:'Mahendra S',alias:'"THE ACCOUNTANT"',danger:'EXTREME',dc:'de',status:'AT LARGE',cid:'BLR-2026-061',pol:false,
+   searchQuery:'money laundering india hawala arrest',searchLabel:'Money Laundering Cases — India',
+   crimes:['Money laundering — ₹8.5 crore traced','Shell companies across 4 states','Illegal hawala network — Bengaluru to Dubai','Financing criminal operations','Falsifying audit reports for 3 years'],
+   desc:'"The Accountant" is the financial backbone of Bengaluru\'s most dangerous criminal network. He has laundered over ₹8 crore through shell companies and hawala. Both ED and CBI have active cases against him.'},
+  {id:64,name:'Manush R',alias:'"THE ROUTE MASTER"',danger:'EXTREME',dc:'de',status:'AT LARGE',cid:'BLR-2026-064',pol:false,
+   searchQuery:'drug smuggling bust india narcotics',searchLabel:'Drug Smuggling Busts — India',
+   crimes:['Drug smuggling — heroin & methamphetamine','Routes from Bengaluru to 3 cities','Distribution across 12 college zones','Laundering drug proceeds','Armed possession — weapons found at hideout'],
+   desc:'Manush R established the most dangerous drug smuggling route through North Bengaluru specifically targeting college communities. NCB has seized contraband worth ₹2.1 crore linked to his operations.'},
+  {id:81,name:'Prithvi Raj D',alias:'"THE PSYCHO"',danger:'MOST WANTED',dc:'dm',status:'⚠ EXTREMELY DANGEROUS',cid:'BLR-2026-081',pol:false,
+   searchQuery:'serial killer india caught crime scene',searchLabel:'Serial Killer Cases — India',
+   crimes:['Multiple homicides — kills for pleasure','No financial motive — thrill killer','3 confirmed victims — 2 cases ongoing','Extreme sadistic behaviour documented','Evaded profiling for 14 months','☠ MOST DANGEROUS IN THIS FILE'],
+   desc:'Prithvi Raj D is Bengaluru\'s most feared active criminal — a psychopathic killer who murders purely for the thrill. Three confirmed murders. If spotted, DO NOT APPROACH. Contact Special Crimes Unit immediately.'},
+  {id:84,name:'Shiva Shankar Reddy',alias:'"THE EXECUTOR"',danger:'MOST WANTED',dc:'dm',status:'WANTED — DO NOT APPROACH',cid:'BLR-2026-084',pol:false,
+   searchQuery:'murder case india wanted criminal',searchLabel:'Murder Cases — India',
+   crimes:['First-degree murder — two confirmed victims','Partnership with Vignesh S R (#119)','Contract killing — hired by rival gang','Illegal firearms — 3 weapons recovered','Witness intimidation'],
+   desc:'Shiva Shankar Reddy is one half of Bengaluru\'s most notorious murder duo — the "executor" of the pair. Armed, dangerous, and with nothing to lose.',partner:'🔗 PARTNER: VIGNESH S R — CASE #119'},
+  {id:88,name:'Rohan J',alias:'"THE CHEMIST"',danger:'EXTREME',dc:'de',status:'AT LARGE',cid:'BLR-2026-088',pol:false,
+   searchQuery:'drug dealer arrested india narcotics',searchLabel:'Drug Dealer Arrests — India',
+   crimes:['Drug dealing — Class A narcotics','Mobile drug delivery network','Supplying 40+ addicts across Bengaluru','Manufacturing synthetic drugs','Two previous arrests — bailed out both times'],
+   desc:'Rohan J runs one of the most active drug dealing operations in Bengaluru. Known as "The Chemist" for alleged synthetic drug production, he uses highly encrypted mobile delivery systems.'},
+  {id:106,name:'Sreevasta',alias:'"THE ARMS DEALER"',danger:'EXTREME',dc:'de',status:'UNDER INVESTIGATION',cid:'BLR-2026-106',pol:false,
+   searchQuery:'illegal weapons smuggling seized india',searchLabel:'Weapons Seizure — India',
+   crimes:['Illegal weapons smuggling — 47 weapons recovered','Supplying firearms to criminal gangs','Cross-border smuggling — TN & Karnataka','Modified illegal weapons to organized crime','Under NIA investigation'],
+   desc:'Sreevasta is the primary weapons supplier to Bengaluru\'s underworld. NIA involvement indicates operations have crossed into national security territory. Considered armed and dangerous at all times.'},
+  {id:108,name:'Srikanth S',alias:'"WHEELIE KING 😂"',danger:'LOW',dc:'dl',status:'FINED — RE-OFFENDED',cid:'BLR-2026-108',pol:false,
+   searchQuery:'bike stunt wheelie highway india arrested',searchLabel:'Dangerous Bike Stunts — India',
+   crimes:['Illegal wheelies on Highway NH-44','Reckless endangerment of 47 motorists','Evading traffic police at 140 km/h','Modified illegal exhaust — noise violation','Instagram stunts — 2.3 lakh views'],
+   desc:'Srikanth S has become a folk legend for his illegal highway stunts. Traffic police have fined him three times. He has paid none. His file sits beside murderers and drug lords — he seems proud of this. 😂'},
+  {id:112,name:'Tarun M',alias:'"THE HUNTER 🚔"',danger:'AUTHORITY',dc:'da',status:'ACTIVE DUTY — SCU',cid:'BCIP-OFFICER-112',pol:true,
+   searchQuery:'bengaluru police special crimes unit investigation',searchLabel:'Special Crimes Unit — Bengaluru',
+   crimes:[],
+   desc:'Inspector Tarun M heads the Special Crimes Investigation Unit tasked with dismantling the entire criminal network in this file. Known for relentless pursuit and zero-tolerance. His mission: bring every person in this file to justice.'},
+  {id:119,name:'Vignesh S R',alias:'"THE PLANNER"',danger:'MOST WANTED',dc:'dm',status:'WANTED — DO NOT APPROACH',cid:'BLR-2026-119',pol:false,
+   searchQuery:'murder conspiracy planned crime india',searchLabel:'Premeditated Murder — India',
+   crimes:['First-degree murder — two confirmed victims','Partnership with Shiva Shankar Reddy (#84)','Mastermind and planner of murders','Destruction of crime scene evidence','Conspiracy charges pending'],
+   desc:'Vignesh S R is the strategic brain of Bengaluru\'s deadliest murder duo. While his partner executes, Vignesh plans and covers up. His methodical elimination of evidence has made prosecution extremely difficult.',partner:'🔗 PARTNER: SHIVA SHANKAR REDDY — CASE #84'},
+  {id:124,name:'Y M Ullas',alias:'"THE SHADOW"',danger:'EXTREME',dc:'de',status:'UNDER SURVEILLANCE',cid:'BLR-2026-124',pol:false,
+   searchQuery:'murder accomplice arrested india abetment',searchLabel:'Abetment of Murder — India',
+   crimes:['Aiding the murder duo (#84 and #119)','Safe houses and false alibis for killers','Destruction of murder evidence','Obstruction of investigation — 3 counts','Accessory to two counts of murder'],
+   desc:'Y M Ullas, "The Shadow," is the silent support system for Bengaluru\'s most violent murder duo. He provided safe houses, fabricated alibis, and helped dispose of evidence.'}
+];
+
+let ME=null;
+
+/* ── AUTO POPUP after 2.5 seconds ── */
+setTimeout(()=>{
+  if(!ME) document.getElementById('autoPopup').classList.add('show');
+},2500);
+
+function closePopup(){document.getElementById('autoPopup').classList.remove('show');}
+
+/* ── SIDE MENU ── */
+function toggleSide(){
+  ['sideMenu','sideOverlay','ham'].forEach(id=>document.getElementById(id).classList.toggle('open'));
+}
+function closeSide(){
+  ['sideMenu','sideOverlay','ham'].forEach(id=>document.getElementById(id).classList.remove('open'));
+}
+function goTo(id){
+  const el=document.getElementById(id);
+  if(el)el.scrollIntoView({behavior:'smooth'});
+}
+
+/* ── LOGIN MODAL ── */
+function openModal(){
+  document.getElementById('loginModal').classList.add('open');
+  document.getElementById('lEmail').value='';
+  document.getElementById('lPass').value='';
+  document.getElementById('lErr').style.display='none';
+  setTimeout(()=>document.getElementById('lEmail').focus(),350);
+}
+function closeModal(){document.getElementById('loginModal').classList.remove('open');}
+
+function tryLogin(){
+  const email=document.getElementById('lEmail').value.trim().toLowerCase();
+  const pass=document.getElementById('lPass').value.trim();
+  const err=document.getElementById('lErr');
+
+  if(!email||!pass){
+    err.textContent='⛔ PLEASE ENTER BOTH EMAIL AND ACCESS CODE';
+    err.style.display='block';
+    return;
+  }
+
+  if(EMAILS.includes(email)){
+    ME=getId(email);
+    closeModal();
+    closePopup();
+    showCrimePage();
+  } else {
+    closeModal();
+    // Show siren lockout with the attempted email
+    document.getElementById('lkId').textContent=`⚠ ATTEMPTED ID: ${email}`;
+    document.getElementById('lockout').classList.add('open');
+    // Play siren sound effect via oscillator
+    try{
+      const ctx=new(window.AudioContext||window.webkitAudioContext)();
+      const osc=ctx.createOscillator();
+      const gain=ctx.createGain();
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.type='sawtooth';
+      osc.frequency.setValueAtTime(800,ctx.currentTime);
+      osc.frequency.linearRampToValueAtTime(400,ctx.currentTime+0.5);
+      osc.frequency.linearRampToValueAtTime(800,ctx.currentTime+1.0);
+      osc.frequency.linearRampToValueAtTime(400,ctx.currentTime+1.5);
+      gain.gain.setValueAtTime(0.3,ctx.currentTime);
+      gain.gain.linearRampToValueAtTime(0,ctx.currentTime+2);
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime+2);
+    }catch(e){}
+  }
+}
+
+function closeLockout(){document.getElementById('lockout').classList.remove('open');}
+
+/* ── SHOW PERSONAL CRIME PAGE ── */
+function showCrimePage(){
+  const profile=DATA.find(c=>c.id===ME);
+  if(!profile)return;
+
+  // Hide public sections
+  document.getElementById('home').style.display='none';
+  document.querySelector('.ticker-wrap').style.display='none';
+  document.querySelector('.news-wrap').style.display='none';
+  document.querySelector('.stats-bg').style.display='none';
+  document.querySelector('.cl-wrap').style.display='none';
+  document.querySelector('footer').style.display='none';
+
+  // Update navbar
+  const btn=document.getElementById('navBtn');
+  btn.textContent='✅ LOGGED IN';
+  btn.classList.add('active');
+  document.getElementById('sideOut').style.display='flex';
+
+  // Show crime page
+  const page=document.getElementById('crimePage');
+  page.classList.add('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  // Build MY profile card
+  buildMyProfile(profile);
+
+  // Load crime images
+  loadCrimeImages(profile);
+
+  // Build others grid
+  buildOthers(profile.id);
+}
+
+/* ── BUILD MY PROFILE ── */
+function buildMyProfile(p){
+  const isPolice=p.pol;
+  const catchingText=isPolice
+    ?`🚔 FULL DATABASE ACCESS GRANTED — INSPECTOR ${p.name.split(' ')[0].toUpperCase()}, HUNT THEM DOWN!`
+    :`🚨 WE ARE WATCHING YOU — WE'RE COMING FOR YOU SOON, ${p.name.split(' ')[0].toUpperCase()}`;
+
+  const crimesList=p.crimes.length>0
+    ?`<ul class="my-crimes-list">${p.crimes.map(c=>`<li>${c}</li>`).join('')}</ul>`
+    :`<p style="font-family:var(--mono);font-size:0.8rem;color:var(--accent);letter-spacing:2px;margin-bottom:16px;">AUTHORIZED LAW ENFORCEMENT — FULL DATABASE ACCESS GRANTED</p>`;
+
+  const partnerTag=p.partner?`<div style="font-family:var(--mono);font-size:0.65rem;color:var(--orange);border:1px solid rgba(255,122,26,0.4);padding:6px 12px;margin-top:10px;letter-spacing:2px;">${p.partner}</div>`:'' ;
+
+  const stampText=isPolice?'OFFICER':'WANTED';
+
+  document.getElementById('myProfile').innerHTML=`
+    <div class="my-profile-top">
+      <span class="case">CASE: ${p.cid}</span>
+      <span class="status">${p.status}</span>
+    </div>
+    <div style="background:linear-gradient(90deg,${isPolice?'#001066,#1d4ed8,#001066':'#3d0010,var(--red),#3d0010'});background-size:200%;animation:gradS 2s linear infinite,pulseOp 1.5s ease infinite;padding:11px 16px;font-family:var(--heading);font-size:0.88rem;letter-spacing:4px;color:#fff;text-align:center;">
+      ${catchingText}
+    </div>
+    <div class="my-profile-body">
+      <div class="my-photo-wrap">
+        <img class="my-photo" src="photos/${p.id}.png" alt="${p.name}"
+          onerror="this.parentElement.innerHTML='<div class=\\'my-photo-noph\\'><span>🖼️</span><span>Photo Classified</span></div>'"
+        />
+        <div class="my-stamp">${stampText}</div>
+      </div>
+      <div class="my-info">
+        <div class="my-name">${p.name}</div>
+        <div class="my-alias">${p.alias}</div>
+        ${crimesList}
+        ${partnerTag}
+        <p class="my-desc">${p.desc}</p>
+      </div>
+    </div>
+  `;
+}
+
+/* ── CRIME IMAGE DATA per person ── */
+const CRIME_IMGS={
+  6:[ // Ragging
+    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1588072432836-e10032774350?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=300&fit=crop',
+  ],
+  7:[ // Scammer / Fraud
+    'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1596079890744-c1a0462d0975?w=400&h=300&fit=crop',
+  ],
+  40:[ // Illegal Business
+    'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1664575602554-2087b04935a5?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1521791055366-0d553872952f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop',
+  ],
+  43:[ // Bank Robbery
+    'https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1607944024060-0450380ddd33?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&h=300&fit=crop',
+  ],
+  61:[ // Money Laundering
+    'https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1621155346337-1d19476ba7d6?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1634128221889-82ed6efebfc3?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=400&h=300&fit=crop',
+  ],
+  64:[ // Drug Smuggling
+    'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1612531385446-f7e6d131e1d0?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1580894894513-541e068a3e2b?w=400&h=300&fit=crop',
+  ],
+  81:[ // Psycho killer
+    'https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1590402494682-cd3fb53b1f70?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1587462392049-aef90dd29dfa?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?w=400&h=300&fit=crop',
+  ],
+  84:[ // Murder
+    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1617634577842-b2eddeaea73e?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1587088007698-0dfdf4048ed4?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1593642634367-d91a135587b5?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1495569819610-9cdb68e7b527?w=400&h=300&fit=crop',
+  ],
+  88:[ // Drug Dealer
+    'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1612531385446-f7e6d131e1d0?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1580894894513-541e068a3e2b?w=400&h=300&fit=crop',
+  ],
+  106:[ // Weapons
+    'https://images.unsplash.com/photo-1595590424283-b8f17842773f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1584445584400-8578b99e8f7e?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1587467512961-120760940315?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1614028674026-a65e31bfd27c?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1580128660010-fd027e1e587a?w=400&h=300&fit=crop',
+  ],
+  108:[ // Bike stunt
+    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1622185135505-2d795003994a?w=400&h=300&fit=crop',
+  ],
+  112:[ // Police / Investigation
+    'https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1588096344992-1dcf4b84bb6a?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1589578527966-fdac0f44566c?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1521791055366-0d553872952f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1560264280-88b68371db39?w=400&h=300&fit=crop',
+  ],
+  119:[ // Murder planned
+    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1574482620811-1aa16ffe3c82?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1617634577842-b2eddeaea73e?w=400&h=300&fit=crop',
+  ],
+  124:[ // Accomplice
+    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1521791055366-0d553872952f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1588096344992-1dcf4b84bb6a?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1575505586569-646b2ca898fc?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1614854262318-831574f15f1f?w=400&h=300&fit=crop',
+    'https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=400&h=300&fit=crop',
+  ],
+};
+
+/* ── LOAD CRIME IMAGES FROM INTERNET ── */
+function loadCrimeImages(profile){
+  const wrap=document.getElementById('crimeImages');
+  const label=profile.searchLabel;
+  const searchUrl=`https://duckduckgo.com/?q=${encodeURIComponent(profile.searchQuery)}&iax=images&ia=images`;
+  const imgs=CRIME_IMGS[profile.id]||CRIME_IMGS[112];
+
+  // Show loading briefly then render
+  wrap.innerHTML=`<div class="ci-loading"><div class="ci-spinner"></div><span>LOADING EVIDENCE FILES...</span></div>`;
+
+  setTimeout(()=>{
+    let html=`<div class="ci-grid">`;
+    imgs.forEach((src,i)=>{
+      html+=`
+        <div class="ci-card" onclick="window.open('${searchUrl}','_blank')" title="Click to search more">
+          <img class="ci-img"
+            src="${src}"
+            alt="Evidence ${i+1}"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://picsum.photos/seed/${profile.id*10+i}/400/300';"
+          />
+          <div class="ci-label">EVIDENCE ${String(i+1).padStart(2,'0')} — ${label.toUpperCase()}</div>
+        </div>`;
+    });
+    html+=`</div>
+    <div style="text-align:center;margin-top:16px;">
+      <a href="${searchUrl}" target="_blank" class="ci-search-link">
+        🔍 SEARCH MORE LIVE IMAGES — ${label.toUpperCase()}
+      </a>
+    </div>`;
+    wrap.innerHTML=html;
+  },800);
+}
+
+/* ── BUILD OTHERS GRID ── */
+function buildOthers(myId){
+  const others=DATA.filter(c=>c.id!==myId);
+  document.getElementById('othersGrid').innerHTML=others.map((c,i)=>`
+    <div class="cc ${c.dc==='dm'?'pri':''} ${c.pol?'pol':''}" style="animation-delay:${i*0.05}s;cursor:pointer;" onclick="openOtherProfile(${c.id})" title="Click to view ${c.name}'s full profile">
+      <div class="cc-top ${c.pol?'pb':''}">
+        <span class="cc-case">CASE: ${c.cid}</span>
+        <span class="cc-stat">${c.status}</span>
+      </div>
+      <div class="cc-ph">
+        <img class="cc-img" src="photos/${c.id}.png" alt="${c.name}"
+          onerror="this.parentElement.innerHTML='<div class=\\'cc-noph\\'><span>🖼️</span><span>Classified</span></div>'"
+        />
+        <div class="cc-ov"><span class="dt ${c.dc}">${c.danger}</span></div>
+      </div>
+      <div class="cc-stamp ${c.pol?'ps':''}">${c.pol?'OFFICER':'WANTED'}</div>
+      <div class="cc-body">
+        <div class="cc-name">${c.name}</div>
+        <div class="cc-alias">${c.alias}</div>
+        ${c.crimes.length>0?`<ul class="cc-crimes">${c.crimes.slice(0,3).map(cr=>`<li>${cr}</li>`).join('')}</ul>`:'<p style="font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:2px;">LAW ENFORCEMENT OFFICER</p>'}
+        <div style="margin-top:10px;text-align:center;font-family:var(--heading);font-size:0.85rem;letter-spacing:3px;color:var(--red);border-top:1px solid var(--border);padding-top:10px;">
+          👁 VIEW FULL PROFILE
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ── OPEN OTHER PERSON'S PROFILE ── */
+function openOtherProfile(id){
+  const profile=DATA.find(c=>c.id===id);
+  if(!profile) return;
+
+  // Scroll to top with transition
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  // Flash transition
+  const page=document.getElementById('crimePage');
+  page.style.opacity='0';
+  page.style.transform='translateY(20px)';
+  page.style.transition='all 0.3s ease';
+
+  setTimeout(()=>{
+    // Rebuild profile for clicked person
+    buildMyProfile(profile);
+    loadCrimeImages(profile);
+    buildOthers(id); // rebuild others excluding this person
+
+    // Animate back in
+    page.style.opacity='1';
+    page.style.transform='translateY(0)';
+
+    window.scrollTo({top:0,behavior:'smooth'});
+  },300);
+}
+
+/* ── LOGOUT ── */
+function logout(){
+  ME=null;
+  document.getElementById('crimePage').classList.remove('open');
+  // Restore public sections
+  ['home'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='';});
+  document.querySelector('.ticker-wrap').style.display='';
+  document.querySelector('.news-wrap').style.display='';
+  document.querySelector('.stats-bg').style.display='';
+  document.querySelector('.cl-wrap').style.display='';
+  document.querySelector('footer').style.display='';
+  const btn=document.getElementById('navBtn');
+  btn.textContent='🔐 LOGIN';
+  btn.classList.remove('active');
+  document.getElementById('sideOut').style.display='none';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ── KEYBOARD ── */
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&document.getElementById('loginModal').classList.contains('open')) tryLogin();
+  if(e.key==='Escape'){closeModal();closeLockout();closeSide();closePopup();}
+});
+</script>
+</body>
+</html>
