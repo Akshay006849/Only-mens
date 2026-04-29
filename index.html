@@ -784,7 +784,23 @@ function buildMyProfile(p){
     <div class="my-profile-body">
       <div class="my-photo-wrap">
         <img class="my-photo" src="${p.id}.png" alt="${p.name}"
-          onerror="this.parentElement.innerHTML='<div class=\\'my-photo-noph\\'><span>🖼️</span><span>Photo Classified</span></div>'"
+          onload="this.style.filter='grayscale(20%) contrast(1.1)'"
+          onerror="
+            var id='${p.id}';
+            var tried=this.dataset.tried||'';
+            if(!tried){
+              this.dataset.tried='1';
+              this.src='photos/'+id+'.png';
+            } else if(tried==='1'){
+              this.dataset.tried='2';
+              this.src=id+'.PNG';
+            } else if(tried==='2'){
+              this.dataset.tried='3';
+              this.src='photos/'+id+'.PNG';
+            } else {
+              this.parentElement.innerHTML='<div class=\\'my-photo-noph\\'><span>🖼️</span><span>Photo Classified</span></div>';
+            }
+          "
         />
         <div class="my-stamp">${stampText}</div>
       </div>
@@ -918,7 +934,19 @@ function buildOthers(myId){
       </div>
       <div class="cc-ph">
         <img class="cc-img" src="${c.id}.png" alt="${c.name}"
-          onerror="this.parentElement.innerHTML='<div class=\\'cc-noph\\'><span>🖼️</span><span>Classified</span></div>'"
+          onerror="
+            var id='${c.id}';
+            var tried=this.dataset.tried||'';
+            if(!tried){
+              this.dataset.tried='1';
+              this.src='photos/'+id+'.png';
+            } else if(tried==='1'){
+              this.dataset.tried='2';
+              this.src=id+'.PNG';
+            } else {
+              this.parentElement.innerHTML='<div class=\\'cc-noph\\'><span>🖼️</span><span>Classified</span></div>';
+            }
+          "
         />
         <div class="cc-ov"><span class="dt ${c.dc}">${c.danger}</span></div>
       </div>
