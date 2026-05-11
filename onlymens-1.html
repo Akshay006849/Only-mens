@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Only Mens 🔥</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #fef9f0;
+  --warm: #fdefd6;
+  --peach: #fcd5a0;
+  --orange: #e8651a;
+  --orange2: #f59332;
+  --gold: #d4a017;
+  --deep: #1c0f02;
+  --mid: #4a3218;
+  --muted: #8a6e4e;
+  --card: rgba(255,248,235,0.92);
+  --glass: rgba(255,240,210,0.55);
+  --shadow: 0 8px 40px rgba(100,50,0,0.13);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--deep); overflow-x: hidden; min-height: 100vh; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--warm); }
+::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 99px; }
+
+/* ── KEYFRAMES ── */
+@keyframes floatUp   { from { opacity:0; transform:translateY(36px);} to { opacity:1; transform:translateY(0);} }
+@keyframes fadeIn    { from { opacity:0; } to { opacity:1; } }
+@keyframes slideIn   { from { opacity:0; transform:translateX(-30px);} to { opacity:1; transform:translateX(0);} }
+@keyframes blobMove1 { 0%,100%{transform:translate(0,0) scale(1);} 33%{transform:translate(40px,-60px) scale(1.12);} 66%{transform:translate(-25px,30px) scale(0.9);} }
+@keyframes blobMove2 { 0%,100%{transform:translate(0,0) scale(1);} 33%{transform:translate(-50px,40px) scale(0.88);} 66%{transform:translate(30px,-20px) scale(1.1);} }
+@keyframes blobMove3 { 0%,100%{transform:translate(0,0) scale(1);} 50%{transform:translate(20px,40px) scale(1.08);} }
+@keyframes shimmer   { 0%{background-position:-200% center;} 100%{background-position:200% center;} }
+@keyframes pulse     { 0%,100%{transform:scale(1);} 50%{transform:scale(1.04);} }
+@keyframes spin      { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+@keyframes ripple    { 0%{transform:scale(0);opacity:0.6;} 100%{transform:scale(4);opacity:0;} }
+@keyframes cardHover { to { transform: translateY(-6px) scale(1.01); box-shadow: 0 20px 60px rgba(100,50,0,0.18); } }
+@keyframes flame     { 0%,100%{transform:scaleY(1) rotate(-2deg);} 50%{transform:scaleY(1.08) rotate(2deg);} }
+@keyframes countdown { 0%{transform:scale(1.2); color:var(--orange);} 100%{transform:scale(1); color:var(--deep);} }
+@keyframes particleFly { 0%{opacity:1;transform:translate(0,0) scale(1);} 100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0);} }
+@keyframes navSlide  { from{transform:translateY(-100%);opacity:0;} to{transform:translateY(0);opacity:1;} }
+@keyframes stagger1  { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+@keyframes avatarPop { 0%{transform:scale(0) rotate(-15deg);} 70%{transform:scale(1.12) rotate(4deg);} 100%{transform:scale(1) rotate(0);} }
+
+/* ── BACKGROUND BLOBS ── */
+.bg-blob { position: fixed; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
+.blob1 { width: 520px; height: 520px; background: radial-gradient(circle, #f8c47544 0%, transparent 70%); top: -100px; left: -100px; animation: blobMove1 18s ease-in-out infinite; }
+.blob2 { width: 420px; height: 420px; background: radial-gradient(circle, #e8651a33 0%, transparent 70%); top: 40%; right: -80px; animation: blobMove2 22s ease-in-out infinite; }
+.blob3 { width: 350px; height: 350px; background: radial-gradient(circle, #fcd5a044 0%, transparent 70%); bottom: 0; left: 30%; animation: blobMove3 15s ease-in-out infinite; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(254,249,240,0.82); backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(232,101,26,0.15);
+  padding: 0 28px; height: 64px;
+  display: flex; align-items: center; gap: 6px;
+  animation: navSlide 0.5s ease both;
+  box-shadow: 0 2px 24px rgba(100,50,0,0.07);
+}
+.nav-logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 20px; color: var(--orange); margin-right: auto; display: flex; align-items: center; gap: 8px; letter-spacing: -0.5px; }
+.nav-btn {
+  background: transparent; border: 1.5px solid transparent; border-radius: 10px;
+  padding: 7px 14px; font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600;
+  color: var(--muted); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 5px;
+}
+.nav-btn:hover, .nav-btn.active { background: rgba(232,101,26,0.1); color: var(--orange); border-color: rgba(232,101,26,0.25); }
+.nav-user { display: flex; align-items: center; gap: 10px; margin-left: 8px; padding-left: 14px; border-left: 1px solid rgba(0,0,0,0.08); }
+.nav-avatar { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 2px solid var(--orange2); }
+.nav-name { font-size: 13px; font-weight: 600; color: var(--mid); }
+.logout-btn { background: rgba(232,101,26,0.1); border: none; color: var(--orange); border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 12px; font-weight: 700; transition: all 0.2s; }
+.logout-btn:hover { background: var(--orange); color: white; }
+
+/* ── MAIN ── */
+main { padding-top: 80px; min-height: 100vh; position: relative; z-index: 1; }
+.page { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
+
+/* ── LANDING ── */
+.landing { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; z-index: 1; padding: 40px 20px; }
+.landing-eyebrow { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 16px; animation: floatUp 0.6s ease both; }
+.landing-title { font-family: 'Playfair Display', serif; font-size: clamp(52px,9vw,110px); font-weight: 900; line-height: 0.95; color: var(--deep); animation: floatUp 0.7s 0.1s ease both; opacity: 0; }
+.landing-title span { color: var(--orange); display: block; font-style: italic; }
+.landing-sub { font-size: clamp(15px,2vw,18px); color: var(--muted); margin-top: 20px; max-width: 440px; line-height: 1.6; animation: floatUp 0.7s 0.2s ease both; opacity: 0; }
+.google-btn {
+  margin-top: 40px; display: inline-flex; align-items: center; gap: 12px;
+  background: white; border: 2px solid rgba(232,101,26,0.25); border-radius: 16px;
+  padding: 14px 28px; font-size: 16px; font-weight: 700; color: var(--deep);
+  cursor: pointer; transition: all 0.25s; box-shadow: 0 4px 24px rgba(100,50,0,0.12);
+  animation: floatUp 0.7s 0.3s ease both; opacity: 0; position: relative; overflow: hidden;
+  font-family: 'Outfit', sans-serif;
+}
+.google-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(232,101,26,0.22); border-color: var(--orange); }
+.google-btn .ripple { position: absolute; border-radius: 50%; background: rgba(232,101,26,0.18); animation: ripple 0.6s ease; pointer-events: none; }
+.landing-note { margin-top: 16px; font-size: 12px; color: var(--muted); animation: floatUp 0.7s 0.4s ease both; opacity: 0; }
+.landing-members { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 32px; animation: floatUp 0.7s 0.5s ease both; opacity: 0; max-width: 520px; }
+.member-chip { background: var(--glass); backdrop-filter: blur(8px); border: 1px solid rgba(232,101,26,0.2); border-radius: 99px; padding: 5px 12px; font-size: 12px; font-weight: 500; color: var(--mid); display: flex; align-items: center; gap: 5px; }
+
+/* ── ACCESS DENIED ── */
+.denied { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; animation: fadeIn 0.5s ease; }
+.denied-icon { font-size: 80px; animation: pulse 2s ease infinite; }
+.denied h2 { font-family: 'Playfair Display', serif; font-size: 36px; margin-top: 20px; color: var(--deep); }
+.denied p { color: var(--muted); margin-top: 10px; font-size: 15px; }
+
+/* ── SECTION HEADER ── */
+.sec-header { margin-bottom: 28px; }
+.sec-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 6px; }
+.sec-title { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--deep); }
+.sec-sub { color: var(--muted); margin-top: 4px; font-size: 14px; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--card); backdrop-filter: blur(12px);
+  border: 1px solid rgba(232,101,26,0.12); border-radius: 20px;
+  box-shadow: var(--shadow); transition: all 0.3s; overflow: hidden;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(100,50,0,0.16); }
+
+/* ── HOME ── */
+.hero-banner {
+  background: linear-gradient(135deg, #fff5e6 0%, #fde4c0 60%, #f8d0a0 100%);
+  border: 1px solid rgba(232,101,26,0.18); border-radius: 24px;
+  padding: 44px 40px; margin-bottom: 28px; position: relative; overflow: hidden;
+  animation: floatUp 0.6s ease both;
+}
+.hero-banner::before { content:''; position:absolute; top:-60px; right:-60px; width:280px; height:280px; background:radial-gradient(circle,rgba(232,101,26,0.15),transparent 70%); border-radius:50%; }
+.hero-greeting { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 700; }
+.hero-name { font-family: 'Playfair Display', serif; font-size: clamp(32px,4vw,52px); font-weight: 900; margin-top: 8px; color: var(--deep); }
+.hero-name span { color: var(--orange); font-style: italic; }
+.hero-sub { color: var(--muted); margin-top: 8px; font-size: 15px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; background: var(--orange); color: white; border-radius: 99px; padding: 7px 18px; font-size: 13px; font-weight: 700; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 28px; }
+.stat-card { background: var(--card); border: 1px solid rgba(232,101,26,0.1); border-radius: 18px; padding: 22px 16px; text-align: center; box-shadow: var(--shadow); transition: all 0.3s; animation: stagger1 0.5s ease both; }
+.stat-card:hover { transform: translateY(-4px); }
+.stat-icon { font-size: 28px; margin-bottom: 8px; }
+.stat-val { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--orange); line-height: 1; }
+.stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.trip-next { background: linear-gradient(135deg,#fff3e0,#fde4c0); border: 1px solid rgba(232,101,26,0.2); border-radius: 20px; padding: 26px; animation: floatUp 0.6s 0.2s ease both; opacity: 0; }
+.countdown-days { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 900; color: var(--orange); line-height: 1; animation: pulse 2s ease infinite; }
+
+/* ── MEMBERS ── */
+.members-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 16px; }
+.member-card { text-align: center; padding: 28px 20px; cursor: pointer; animation: floatUp 0.5s ease both; }
+.member-avatar-wrap { position: relative; display: inline-block; }
+.member-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--orange); box-shadow: 0 4px 20px rgba(232,101,26,0.25); animation: avatarPop 0.5s ease; }
+.member-emoji-avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg,var(--peach),var(--orange2)); display: flex; align-items: center; justify-content: center; font-size: 36px; border: 3px solid var(--orange); box-shadow: 0 4px 20px rgba(232,101,26,0.2); margin: 0 auto; }
+.member-name { font-weight: 700; font-size: 16px; margin-top: 14px; color: var(--deep); }
+.member-usn { font-size: 11px; color: var(--muted); margin-top: 2px; font-weight: 500; }
+.admin-badge { display: inline-flex; align-items: center; gap: 4px; background: linear-gradient(135deg,var(--gold),var(--orange2)); color: white; border-radius: 99px; padding: 3px 10px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-top: 8px; }
+.member-online { position: absolute; bottom: 4px; right: 4px; width: 14px; height: 14px; background: #44cc77; border-radius: 50%; border: 2px solid white; }
+
+/* ── TRIPS ── */
+.trip-card { overflow: hidden; animation: floatUp 0.5s ease both; }
+.trip-img { width: 100%; height: 180px; object-fit: cover; }
+.trip-img-placeholder { width: 100%; height: 180px; background: linear-gradient(135deg,var(--peach),var(--warm)); display: flex; align-items: center; justify-content: center; font-size: 60px; }
+.trip-body { padding: 20px; }
+.trip-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--deep); }
+.trip-meta { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+.trip-tag { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 99px; }
+.tag-upcoming { background: rgba(232,101,26,0.12); color: var(--orange); }
+.tag-done     { background: rgba(50,180,100,0.12); color: #2a9a55; }
+.attendee-stack { display: flex; margin-top: 14px; }
+.attendee-thumb { width: 28px; height: 28px; border-radius: 50%; border: 2px solid white; margin-left: -8px; object-fit: cover; background: var(--peach); display: flex; align-items: center; justify-content: center; font-size: 13px; }
+
+/* ── VIBES ── */
+.vibe-card { padding: 20px; display: flex; gap: 14px; align-items: flex-start; transition: all 0.3s; }
+.vote-btn { background: rgba(232,101,26,0.1); border: 1.5px solid rgba(232,101,26,0.25); border-radius: 12px; padding: 10px 14px; cursor: pointer; text-align: center; min-width: 54px; transition: all 0.2s; }
+.vote-btn:hover { background: var(--orange); color: white; }
+.vote-count { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--orange); line-height: 1; }
+.vote-arrow { font-size: 10px; color: var(--orange); }
+.vibe-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 10px; border-radius: 99px; }
+.vibe-text { font-size: 15px; color: var(--mid); line-height: 1.55; margin-top: 6px; }
+.vibe-compose { background: var(--card); border: 1px solid rgba(232,101,26,0.15); border-radius: 20px; padding: 24px; margin-bottom: 24px; box-shadow: var(--shadow); }
+
+/* ── GALLERY ── */
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: 12px; }
+.gallery-item { border-radius: 14px; overflow: hidden; aspect-ratio: 1; cursor: pointer; position: relative; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.gallery-item:hover img { transform: scale(1.07); }
+.gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top,rgba(28,15,2,0.6),transparent); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 12px; }
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-caption { color: white; font-size: 13px; font-weight: 600; }
+
+/* ── ADMIN ── */
+.admin-tabs { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+.a-tab { background: transparent; border: 1.5px solid rgba(232,101,26,0.2); border-radius: 10px; padding: 8px 16px; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--muted); transition: all 0.2s; font-family: 'Outfit',sans-serif; }
+.a-tab.active, .a-tab:hover { background: rgba(232,101,26,0.12); color: var(--orange); border-color: rgba(232,101,26,0.4); }
+.form-group { margin-bottom: 14px; }
+.form-label { font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: 0.5px; margin-bottom: 5px; display: block; text-transform: uppercase; }
+.form-input { width: 100%; background: white; border: 1.5px solid rgba(232,101,26,0.18); border-radius: 11px; padding: 11px 14px; font-size: 14px; font-family: 'Outfit',sans-serif; color: var(--deep); outline: none; transition: border-color 0.2s; }
+.form-input:focus { border-color: var(--orange); }
+.form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23e8651a' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; }
+.btn-primary { background: linear-gradient(135deg,var(--orange),var(--orange2)); color: white; border: none; border-radius: 12px; padding: 12px 24px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all 0.25s; font-family: 'Outfit',sans-serif; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,101,26,0.35); }
+.btn-danger { background: rgba(220,50,50,0.1); color: #cc3333; border: 1px solid rgba(220,50,50,0.25); border-radius: 9px; padding: 6px 12px; cursor: pointer; font-size: 12px; font-weight: 700; transition: all 0.2s; font-family: 'Outfit',sans-serif; }
+.btn-danger:hover { background: #cc3333; color: white; }
+.btn-sec { background: rgba(232,101,26,0.1); color: var(--orange); border: 1px solid rgba(232,101,26,0.25); border-radius: 9px; padding: 6px 12px; cursor: pointer; font-size: 12px; font-weight: 700; transition: all 0.2s; font-family: 'Outfit',sans-serif; }
+.btn-sec:hover { background: rgba(232,101,26,0.2); }
+
+/* ── UPLOAD DROP ── */
+.upload-zone { border: 2px dashed rgba(232,101,26,0.3); border-radius: 16px; padding: 40px; text-align: center; cursor: pointer; transition: all 0.2s; }
+.upload-zone:hover, .upload-zone.drag { border-color: var(--orange); background: rgba(232,101,26,0.04); }
+.upload-zone-icon { font-size: 48px; }
+
+/* ── MODAL ── */
+.modal-overlay { position: fixed; inset: 0; background: rgba(28,15,2,0.55); backdrop-filter: blur(6px); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 20px; animation: fadeIn 0.25s ease; }
+.modal { background: var(--cream); border: 1px solid rgba(232,101,26,0.15); border-radius: 24px; padding: 32px; max-width: 500px; width: 100%; max-height: 85vh; overflow-y: auto; box-shadow: 0 40px 100px rgba(100,50,0,0.25); animation: floatUp 0.3s ease; }
+.modal-close { float: right; background: rgba(232,101,26,0.1); border: none; color: var(--orange); border-radius: 8px; width: 30px; height: 30px; cursor: pointer; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+
+/* ── LOADER ── */
+.loader { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; gap: 16px; }
+.loader-ring { width: 48px; height: 48px; border: 4px solid var(--peach); border-top-color: var(--orange); border-radius: 50%; animation: spin 0.8s linear infinite; }
+.loader-text { font-size: 15px; color: var(--muted); font-weight: 500; }
+
+/* ── TOAST ── */
+.toast { position: fixed; bottom: 28px; right: 28px; z-index: 999; background: var(--deep); color: white; border-radius: 14px; padding: 14px 20px; font-size: 14px; font-weight: 600; box-shadow: 0 8px 32px rgba(0,0,0,0.2); animation: floatUp 0.3s ease; display: flex; align-items: center; gap: 10px; }
+
+/* ── STATUS ── */
+.status-msg { padding: 12px 16px; border-radius: 12px; font-size: 13px; font-weight: 600; margin-top: 12px; }
+.status-ok  { background: rgba(50,180,100,0.12); color: #2a9a55; }
+.status-err { background: rgba(220,50,50,0.1); color: #cc3333; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .two-col { grid-template-columns: 1fr; }
+  nav { padding: 0 14px; gap: 2px; }
+  .nav-btn span { display: none; }
+  .landing-title { font-size: 52px; }
+  .hero-banner { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- BACKGROUND BLOBS -->
+<div class="bg-blob blob1"></div>
+<div class="bg-blob blob2"></div>
+<div class="bg-blob blob3"></div>
+
+<div id="root"></div>
+
+<!-- FIREBASE SDKs -->
+<script type="module">
+import { initializeApp }                              from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged }
+                                                      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, collection, getDocs, addDoc, deleteDoc, updateDoc, serverTimestamp, query, orderBy, onSnapshot }
+                                                      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+// ImgBB used for all image uploads (no Firebase Storage needed)
+
+// ══════════════════════════════════════════════════════
+// 🔥 YOUR FIREBASE CONFIG — PASTE HERE
+// ══════════════════════════════════════════════════════
+const firebaseConfig = {
+  apiKey:            "AIzaSyCzX6CeUzvcdlKLbTUqShJ9J4Yn3QtRol4",
+  authDomain:        "only-mens-d0278.firebaseapp.com",
+  projectId:         "only-mens-d0278",
+  storageBucket:     "only-mens-d0278.firebasestorage.app",
+  messagingSenderId: "602046012135",
+  appId:             "1:602046012135:web:9a8efbd83d0c0629a5e042",
+  measurementId:     "G-7WXGSPRN81"
+};
+
+const app     = initializeApp(firebaseConfig);
+const auth    = getAuth(app);
+const db      = getFirestore(app);
+const gProvider = new GoogleAuthProvider();
+
+// ── ImgBB upload helper ──
+const IMGBB_KEY = "84f30535d380a2a44ecb54b759da3e1d";
+async function uploadToImgbb(file){
+  const form = new FormData();
+  form.append("image", file);
+  const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`,{method:"POST",body:form});
+  const data = await res.json();
+  if(data.success) return data.data.url;
+  throw new Error(data.error?.message||"ImgBB upload failed");
+}
+
+// ══════════════════════════════════════════════════════
+// 🎓 ALLOWED MEMBERS  (USN → info)
+// Akshay = admin  →  1EP22IS007
+// ══════════════════════════════════════════════════════
+const MEMBERS = {
+  "1ep22is007": { name:"Akshay Kumar",    emoji:"👑", isAdmin:true  },
+  "1ep22is006": { name:"Akhilesh",        emoji:"🦁", isAdmin:false },
+  "1ep22is043": { name:"Hithesh G V",     emoji:"🎸", isAdmin:false },
+  "1ep22is061": { name:"Mahendra S",      emoji:"⚡", isAdmin:false },
+  "1ep22is064": { name:"Manush R",        emoji:"🎯", isAdmin:false },
+  "1ep22is088": { name:"Rohan J",         emoji:"🚀", isAdmin:false },
+  "1ep22is084": { name:"Shiva Shankar",   emoji:"🔱", isAdmin:false },
+  "1ep22is108": { name:"Srikanth S",      emoji:"🌊", isAdmin:false },
+  "1ep22is106": { name:"Sreevasta S P",   emoji:"🦅", isAdmin:false },
+  "1ep22is119": { name:"Vignesh S R",     emoji:"💡", isAdmin:false },
+  "1ep22is112": { name:"Tarun M",         emoji:"🎮", isAdmin:false },
+  "1ep22is124": { name:"Y M Ullas",       emoji:"🌟", isAdmin:false },
+  "1ep22is080": { name:"Prithvi Raj D",   emoji:"🏹", isAdmin:false },
+  "1ep22is065": { name:"Vikram",          emoji:"🏔️", isAdmin:false },
+};
+
+function getUSN(email){ return email?.split("@")[0]?.toLowerCase() || ""; }
+function getMemberInfo(email){ return MEMBERS[getUSN(email)] || null; }
+function isAllowed(email){ return !!email?.endsWith("@eastpoint.ac.in") && !!getMemberInfo(email); }
+function isAdmin(email){ return getMemberInfo(email)?.isAdmin || false; }
+
+// ══════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════
+let state = {
+  authUser: null, loading: true, page: "home", denied: false,
+  adminTab: "members",
+  members: [], trips: [], vibes: [], gallery: [], homeBlocks: [],
+  modal: null, toast: null,
+};
+let listeners = [];
+function setState(patch){ state = {...state,...patch}; render(); }
+function sub(fn){ listeners.push(fn); return ()=>{ listeners=listeners.filter(l=>l!==fn); }; }
+function notify(){ listeners.forEach(f=>f()); }
+
+// ══════════════════════════════════════════════════════
+// AUTH
+// ══════════════════════════════════════════════════════
+onAuthStateChanged(auth, async (user) => {
+  if (!user) { setState({ authUser:null, loading:false, denied:false }); return; }
+  if (!isAllowed(user.email)) {
+    await signOut(auth);
+    setState({ authUser:null, loading:false, denied:true });
+    return;
+  }
+  // Save / update user profile in Firestore
+  const usn = getUSN(user.email);
+  const info = getMemberInfo(user.email);
+  const uref = doc(db,"users", usn);
+  const snap = await getDoc(uref);
+  const profileData = {
+    name: info.name, email: user.email, usn,
+    emoji: info.emoji, isAdmin: info.isAdmin,
+    photoURL: snap.data()?.profilePhoto || user.photoURL || "",
+    lastLogin: serverTimestamp(),
+  };
+  if (!snap.exists()) profileData.joinedAt = serverTimestamp();
+  await setDoc(uref, profileData, { merge:true });
+  setState({ authUser: { ...user, ...info, usn }, loading:false, denied:false });
+  loadAll();
+});
+
+async function loadAll(){
+  await Promise.all([loadMembers(), loadTrips(), loadVibes(), loadGallery(), loadHomeBlocks()]);
+}
+
+// ── FIRESTORE LOADERS ──
+async function loadMembers(){
+  const snap = await getDocs(collection(db,"users"));
+  const members = snap.docs.map(d=>({id:d.id,...d.data()}));
+  setState({members});
+}
+async function loadTrips(){
+  const snap = await getDocs(query(collection(db,"trips"),orderBy("date","asc")));
+  setState({trips: snap.docs.map(d=>({id:d.id,...d.data()}))});
+}
+async function loadVibes(){
+  const snap = await getDocs(query(collection(db,"vibes"),orderBy("createdAt","desc")));
+  setState({vibes: snap.docs.map(d=>({id:d.id,...d.data()}))});
+}
+async function loadGallery(){
+  const snap = await getDocs(query(collection(db,"gallery"),orderBy("uploadedAt","desc")));
+  setState({gallery: snap.docs.map(d=>({id:d.id,...d.data()}))});
+}
+async function loadHomeBlocks(){
+  const snap = await getDocs(query(collection(db,"homeBlocks"),orderBy("order","asc")));
+  setState({homeBlocks: snap.docs.map(d=>({id:d.id,...d.data()}))});
+}
+
+// ══════════════════════════════════════════════════════
+// RENDER ENGINE (vanilla DOM)
+// ══════════════════════════════════════════════════════
+function render(){
+  const root = document.getElementById("root");
+  if(state.loading){ root.innerHTML = loadingHTML(); return; }
+  if(!state.authUser){ root.innerHTML = state.denied ? deniedHTML() : landingHTML(); bindLanding(); return; }
+  root.innerHTML = appHTML();
+  bindApp();
+}
+
+// ══════════════════════════════════════════════════════
+// HTML TEMPLATES
+// ══════════════════════════════════════════════════════
+function loadingHTML(){
+  return `<div class="loader"><div class="loader-ring"></div><div class="loader-text">Loading Only Mens…</div></div>`;
+}
+
+function deniedHTML(){
+  return `
+  <div class="denied">
+    <div class="denied-icon">🚫</div>
+    <h2>Access Denied</h2>
+    <p>Only <strong>1EP22IS</strong> gang members can enter.<br>Not your crew's portal, bhai!</p>
+    <button class="btn-primary" style="margin-top:24px" onclick="tryAgain()">← Try Another Account</button>
+  </div>`;
+}
+window.tryAgain = () => setState({ denied:false });
+
+function avatarImg(src, name, size=48, className=""){
+  if(src) return `<img src="${src}" class="${className}" style="width:${size}px;height:${size}px;border-radius:50%;object-fit:cover;border:2.5px solid var(--orange);" onerror="this.style.display='none';this.nextSibling.style.display='flex'"/><div style="display:none;width:${size}px;height:${size}px;border-radius:50%;background:linear-gradient(135deg,var(--peach),var(--orange2));align-items:center;justify-content:center;font-size:${size*0.4}px;border:2.5px solid var(--orange);">${name?.[0]||"?"}</div>`;
+  return `<div style="width:${size}px;height:${size}px;border-radius:50%;background:linear-gradient(135deg,var(--peach),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:${size*0.4}px;border:2.5px solid var(--orange);">${name?.[0]||"?"}</div>`;
+}
+
+function landingHTML(){
+  const names = Object.values(MEMBERS).map(m=>`<div class="member-chip">${m.emoji} ${m.name.split(" ")[0]}</div>`).join("");
+  return `
+  <main>
+    <div class="landing">
+      <div class="landing-eyebrow">🔥 Private Crew Portal</div>
+      <h1 class="landing-title">Only<span>Mens</span></h1>
+      <p class="landing-sub">The brotherhood of 1EP22IS. Track trips, share vibes, celebrate memories. Our corner of the internet.</p>
+      <button class="google-btn" id="loginBtn">
+        <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.4 1.2 8.7 3.1l6.5-6.5C35.5 2.9 30.1.5 24 .5 14.9.5 7.1 6.2 3.8 14.1l7.6 5.9C13.1 13.8 18.1 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.5-.1-2.9-.4-4.3H24v8.1h12.7c-.6 3-2.4 5.5-4.9 7.2l7.5 5.8c4.4-4 7.2-10 7.2-16.8z"/><path fill="#FBBC05" d="M11.4 28.6A14.8 14.8 0 0 1 9.5 24c0-1.6.3-3.2.8-4.6L2.7 13.5A23.5 23.5 0 0 0 .5 24c0 3.8.9 7.3 2.5 10.4l8.4-5.8z"/><path fill="#34A853" d="M24 47.5c6 0 11.1-2 14.8-5.4l-7.5-5.8c-2 1.4-4.6 2.2-7.3 2.2-5.9 0-10.9-4-12.7-9.4l-7.6 5.8C7 41.7 14.9 47.5 24 47.5z"/></svg>
+        Sign in with Google
+      </button>
+      <p class="landing-note">Only @eastpoint.ac.in members of the crew are allowed.</p>
+      <div class="landing-members">${names}</div>
+    </div>
+  </main>`;
+}
+
+function navHTML(){
+  const u = state.authUser;
+  const pages = [
+    {id:"home",icon:"🏠",label:"Home"},
+    {id:"members",icon:"👥",label:"Gang"},
+    {id:"trips",icon:"🗺️",label:"Trips"},
+    {id:"vibes",icon:"💬",label:"Vibes"},
+    {id:"gallery",icon:"📸",label:"Gallery"},
+  ];
+  const navLinks = pages.map(p=>`
+    <button class="nav-btn ${state.page===p.id?"active":""}" data-page="${p.id}">
+      ${p.icon} <span>${p.label}</span>
+    </button>`).join("");
+  const adminLink = u?.isAdmin ? `<button class="nav-btn ${state.page==="admin"?"active":""}" data-page="admin">⚙️ <span>Admin</span></button>` : "";
+  return `
+  <nav>
+    <div class="nav-logo">🔥 Only Mens</div>
+    ${navLinks}${adminLink}
+    <div class="nav-user">
+      ${u?.profilePhoto ? `<img src="${u.profilePhoto}" class="nav-avatar" onerror="this.src=''"/>` : `<div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--peach),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:18px;">${u?.emoji||"😊"}</div>`}
+      <span class="nav-name">${u?.name?.split(" ")[0]}</span>
+      <button class="logout-btn" id="logoutBtn">Sign out</button>
+    </div>
+  </nav>`;
+}
+
+function appHTML(){
+  const page = state.page;
+  const content =
+    page==="home"    ? homeHTML() :
+    page==="members" ? membersHTML() :
+    page==="trips"   ? tripsHTML() :
+    page==="vibes"   ? vibesHTML() :
+    page==="gallery" ? galleryHTML() :
+    page==="admin"   ? adminHTML() : "";
+  const toast = state.toast ? `<div class="toast">${state.toast}</div>` : "";
+  const modal = state.modal ? modalHTML() : "";
+  return `${navHTML()}<main><div class="page">${content}</div></main>${toast}${modal}`;
+}
+
+// ── HOME ──
+function homeHTML(){
+  const u = state.authUser;
+  const trips = state.trips;
+  const upcoming = trips.find(t=>t.status==="upcoming");
+  const daysLeft = upcoming ? Math.max(0,Math.ceil((new Date(upcoming.date)-new Date())/86400000)) : null;
+  const photo = state.members.find(m=>m.usn===u.usn)?.profilePhoto || "";
+
+  const statCards = [
+    {icon:"👥",val:state.members.length,label:"Brothers"},
+    {icon:"🗺️",val:trips.filter(t=>t.status==="completed").length,label:"Adventures"},
+    {icon:"💬",val:state.vibes.length,label:"Vibes"},
+    {icon:"📸",val:state.gallery.length,label:"Memories"},
+  ].map((s,i)=>`
+    <div class="stat-card" style="animation-delay:${i*0.08}s">
+      <div class="stat-icon">${s.icon}</div>
+      <div class="stat-val">${s.val}</div>
+      <div class="stat-label">${s.label}</div>
+    </div>`).join("");
+
+  // ── HOME BLOCKS (magazine layout) ──
+  const blocks = state.homeBlocks.map((b,i)=>{
+    const isEven = i % 2 === 0;
+    const imgEl = b.imageUrl ? `<div style="flex:1;min-width:260px;border-radius:18px;overflow:hidden;box-shadow:0 8px 32px rgba(100,50,0,0.13);"><img src="${b.imageUrl}" style="width:100%;height:100%;min-height:220px;object-fit:cover;display:block;"></div>` : "";
+    const textEl = `
+      <div style="flex:1;min-width:220px;display:flex;flex-direction:column;justify-content:center;gap:10px;">
+        ${b.tag?`<div style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:700;">${b.tag}</div>`:""}
+        <div style="font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,28px);font-weight:900;color:var(--deep);line-height:1.2;">${b.title||""}</div>
+        <div style="font-size:15px;color:var(--muted);line-height:1.7;">${b.text||""}</div>
+        ${b.date?`<div style="font-size:12px;color:var(--muted);margin-top:4px;">📅 ${b.date}</div>`:""}
+      </div>`;
+    return `
+    <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:center;padding:28px;background:var(--card);border:1px solid rgba(232,101,26,0.1);border-radius:22px;box-shadow:var(--shadow);margin-bottom:20px;animation:floatUp 0.5s ${i*0.1}s ease both;opacity:0;flex-direction:${isEven?"row":"row-reverse"};">
+      ${imgEl}${textEl}
+    </div>`;
+  }).join("") || "";
+
+  return `
+  <div class="hero-banner">
+    <div class="hero-greeting">Welcome back 👋</div>
+    <div class="hero-name" style="display:flex;align-items:center;gap:16px;">
+      ${photo ? `<img src="${photo}" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--orange);flex-shrink:0;">` : `<div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--peach),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0;">${u.emoji}</div>`}
+      <div><div style="font-size:13px;color:var(--muted);">Kya haal hai,</div><span>${u.name}</span>${u.isAdmin?`<span style="font-size:14px;font-style:normal;"> 👑</span>`:""}</div>
+    </div>
+    <div class="hero-sub">${u.usn?.toUpperCase()} · Information Science · Batch 2022</div>
+    <div class="hero-badge">🔥 Only Mens Gang</div>
+  </div>
+
+  <div class="stats-grid">${statCards}</div>
+
+  ${upcoming ? `
+  <div style="background:linear-gradient(135deg,#fff3e0,#fde4c0);border:1px solid rgba(232,101,26,0.2);border-radius:20px;padding:26px;margin-bottom:24px;animation:floatUp 0.5s ease both;">
+    <div style="font-size:11px;letter-spacing:3px;color:var(--orange);font-weight:700;text-transform:uppercase;margin-bottom:12px;">⏳ Next Adventure</div>
+    <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+      <div style="text-align:center;"><div class="countdown-days">${daysLeft}</div><div style="font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:1px;">days to go</div></div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:900;color:var(--deep);">${upcoming.name}</div><div style="color:var(--muted);font-size:13px;margin-top:4px;">📍 ${upcoming.location} &nbsp;·&nbsp; 📅 ${upcoming.date}</div><div style="font-size:14px;color:var(--mid);margin-top:6px;line-height:1.5;">${upcoming.description||""}</div></div>
+    </div>
+  </div>` : ""}
+
+  ${blocks ? `
+  <div style="margin-bottom:8px;">
+    <div style="font-size:11px;letter-spacing:3px;color:var(--orange);font-weight:700;text-transform:uppercase;margin-bottom:18px;">📰 From The Gang</div>
+    ${blocks}
+  </div>` : `
+  <div style="text-align:center;padding:40px;color:var(--muted);border:2px dashed rgba(232,101,26,0.2);border-radius:20px;">
+    <div style="font-size:40px;">📰</div>
+    <div style="margin-top:10px;font-size:14px;">Admin can add home page sections from the Admin panel.</div>
+  </div>`}`;
+}
+
+// ── MEMBERS ──
+function membersHTML(){
+  const cards = state.members.map((m,i)=>`
+    <div class="card member-card" style="animation-delay:${i*0.06}s" data-memberid="${m.usn}">
+      <div class="member-avatar-wrap" style="margin:0 auto;">
+        ${m.profilePhoto
+          ? `<img src="${m.profilePhoto}" class="member-avatar">`
+          : `<div class="member-emoji-avatar">${m.emoji||m.name?.[0]||"?"}</div>`}
+        ${m.isAdmin ? `<div style="position:absolute;bottom:-4px;right:-4px;font-size:16px;">👑</div>` : ""}
+      </div>
+      <div class="member-name">${m.name}</div>
+      <div class="member-usn">${m.usn?.toUpperCase()}</div>
+      ${m.isAdmin ? `<div class="admin-badge">👑 Admin</div>` : ""}
+      ${m.bio ? `<div style="font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5;">${m.bio}</div>` : ""}
+    </div>`).join("");
+  return `
+  <div class="sec-header">
+    <div class="sec-eyebrow">The Brotherhood</div>
+    <div class="sec-title">The Gang 👥</div>
+    <div class="sec-sub">${state.members.length} legends of 1EP22IS</div>
+  </div>
+  <div class="members-grid">${cards || "<div style='color:var(--muted);'>No members yet.</div>"}</div>`;
+}
+
+// ── TRIPS ──
+function tripsHTML(){
+  const upcoming = state.trips.filter(t=>t.status==="upcoming");
+  const done = state.trips.filter(t=>t.status==="completed");
+  const tripCard = (t,i) => `
+    <div class="card trip-card" style="animation-delay:${i*0.08}s">
+      ${t.coverPhoto ? `<img src="${t.coverPhoto}" class="trip-img">` : `<div class="trip-img-placeholder">🏔️</div>`}
+      <div class="trip-body">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px;">
+          <div class="trip-name">${t.name}</div>
+          <span class="trip-tag ${t.status==="upcoming"?"tag-upcoming":"tag-done"}">${t.status==="upcoming"?"🟠 Upcoming":"✅ Done"}</span>
+        </div>
+        <div class="trip-meta">
+          <span style="font-size:13px;color:var(--muted);">📍 ${t.location||"TBD"}</span>
+          <span style="font-size:13px;color:var(--muted);">📅 ${t.date||""}</span>
+        </div>
+        ${t.description ? `<div style="font-size:13px;color:var(--mid);margin-top:8px;line-height:1.5;">${t.description}</div>` : ""}
+        ${t.status==="upcoming"&&t.date ? `<div style="margin-top:12px;background:rgba(232,101,26,0.1);border-radius:10px;padding:8px 12px;font-size:13px;color:var(--orange);font-weight:600;">⏳ ${Math.max(0,Math.ceil((new Date(t.date)-new Date())/86400000))} days to go!</div>` : ""}
+      </div>
+    </div>`;
+  return `
+  <div class="sec-header">
+    <div class="sec-eyebrow">Adventures</div>
+    <div class="sec-title">Trip Tracker 🗺️</div>
+    <div class="sec-sub">${state.trips.length} expeditions</div>
+  </div>
+  ${upcoming.length ? `<div style="font-size:11px;letter-spacing:3px;color:var(--orange);font-weight:700;margin-bottom:12px;text-transform:uppercase;">Upcoming</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:28px;">${upcoming.map(tripCard).join("")}</div>` : ""}
+  <div style="font-size:11px;letter-spacing:3px;color:var(--muted);font-weight:700;margin-bottom:12px;text-transform:uppercase;">Completed</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;">
+    ${done.length ? done.map(tripCard).join("") : "<div style='color:var(--muted);'>No trips yet. First one coming soon!</div>"}
+  </div>`;
+}
+
+// ── VIBES ──
+function vibesHTML(){
+  const u = state.authUser;
+  const vibe = v => {
+    const author = state.members.find(m=>m.usn===v.authorUsn);
+    const tagColors = {trip:"rgba(232,101,26,0.15)",idea:"rgba(212,160,23,0.15)",suggest:"rgba(68,170,255,0.15)",random:"rgba(170,100,255,0.15)"};
+    const tagText = {trip:"var(--orange)",idea:"var(--gold)",suggest:"#1a88cc",random:"#8844cc"};
+    return `
+    <div class="card vibe-card" style="margin-bottom:12px;">
+      <button class="vote-btn" data-vibeid="${v.id}">
+        <div class="vote-count">${v.votes||0}</div>
+        <div class="vote-arrow">▲</div>
+      </button>
+      <div style="flex:1;">
+        <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap;">
+          ${author?.profilePhoto ? `<img src="${author.profilePhoto}" style="width:22px;height:22px;border-radius:50%;object-fit:cover;">` : `<div style="width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--peach),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:11px;">${author?.emoji||"?"}</div>`}
+          <span style="font-size:13px;font-weight:600;color:var(--mid);">${author?.name||"Someone"}</span>
+          <span class="vibe-tag" style="background:${tagColors[v.tag]||tagColors.random};color:${tagText[v.tag]||tagText.random};">#${v.tag}</span>
+          <span style="font-size:11px;color:var(--muted);margin-left:auto;">${v.date||""}</span>
+        </div>
+        <div class="vibe-text">${v.text}</div>
+      </div>
+    </div>`;
+  };
+  const tagOpts = ["trip","idea","suggest","random"].map(t=>`<option value="${t}">#${t}</option>`).join("");
+  return `
+  <div class="sec-header">
+    <div class="sec-eyebrow">Drop Your Thoughts</div>
+    <div class="sec-title">Vibes & Suggestions 💬</div>
+  </div>
+  <div class="vibe-compose">
+    <div style="font-weight:600;margin-bottom:12px;color:var(--mid);">Got something to say?</div>
+    <textarea id="vibeText" rows="3" placeholder="Kuch dil mein hai? Bol de yahan... 🔥" class="form-input" style="resize:vertical;width:100%;"></textarea>
+    <div style="display:flex;gap:10px;margin-top:12px;align-items:center;flex-wrap:wrap;">
+      <select id="vibeTag" class="form-input form-select" style="width:auto;">${tagOpts}</select>
+      <button class="btn-primary" id="postVibeBtn">Post Vibe 🔥</button>
+    </div>
+  </div>
+  <div id="vibeList">${[...state.vibes].sort((a,b)=>(b.votes||0)-(a.votes||0)).map(vibe).join("") || "<div style='color:var(--muted);text-align:center;padding:40px;'>No vibes yet. Be the first!</div>"}</div>`;
+}
+
+// ── GALLERY ──
+function galleryHTML(){
+  const imgs = state.gallery.map(img=>`
+    <div class="gallery-item" data-galleryid="${img.id}">
+      <img src="${img.url}" alt="${img.caption||""}" loading="lazy">
+      <div class="gallery-overlay">
+        <div class="gallery-caption">${img.caption||""} ${img.trip?`· ${img.trip}`:""}</div>
+      </div>
+    </div>`).join("");
+  return `
+  <div class="sec-header">
+    <div class="sec-eyebrow">Memories</div>
+    <div class="sec-title">Gallery 📸</div>
+    <div class="sec-sub">${state.gallery.length} photos</div>
+  </div>
+  ${imgs ? `<div class="gallery-grid">${imgs}</div>` : `<div style="text-align:center;padding:80px 0;"><div style="font-size:64px;">📸</div><div style="color:var(--muted);margin-top:12px;">No photos yet. Admin uploads coming soon!</div></div>`}`;
+}
+
+// ── ADMIN ──
+function adminHTML(){
+  const tab = state.adminTab;
+  const tabs = [
+    {id:"members",label:"👥 Members"},
+    {id:"trips",label:"🗺️ Trips"},
+    {id:"upload",label:"📸 Upload Photos"},
+    {id:"profile",label:"🖼️ Profile Photos"},
+    {id:"homeblocks",label:"📰 Home Sections"},
+  ];
+  const tabBtns = tabs.map(t=>`<button class="a-tab ${tab===t.id?"active":""}" data-atab="${t.id}">${t.label}</button>`).join("");
+  const content =
+    tab==="members"    ? adminMembersHTML() :
+    tab==="trips"      ? adminTripsHTML() :
+    tab==="upload"     ? adminUploadHTML() :
+    tab==="profile"    ? adminProfileHTML() :
+    tab==="homeblocks" ? adminHomeBlocksHTML() : "";
+  return `
+  <div class="sec-header">
+    <div class="sec-eyebrow">Control Center</div>
+    <div class="sec-title">Admin Panel ⚙️</div>
+  </div>
+  <div class="admin-tabs">${tabBtns}</div>
+  ${content}`;
+}
+
+function adminMembersHTML(){
+  const rows = state.members.map(m=>`
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,248,235,0.7);border:1px solid rgba(232,101,26,0.1);border-radius:12px;margin-bottom:8px;">
+      ${m.profilePhoto ? `<img src="${m.profilePhoto}" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--orange);">` : `<div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--peach),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:20px;">${m.emoji||"?"}</div>`}
+      <div style="flex:1;">
+        <div style="font-weight:700;font-size:15px;">${m.name} ${m.isAdmin?"👑":""}</div>
+        <div style="font-size:12px;color:var(--muted);">${m.usn?.toUpperCase()} · ${m.email||""}</div>
+      </div>
+      <button class="btn-sec" data-editbio="${m.usn}">Edit Bio</button>
+    </div>`).join("");
+  return `
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div>
+      <div style="font-weight:700;margin-bottom:14px;font-size:16px;">Current Members (${state.members.length})</div>
+      ${rows||"<div style='color:var(--muted);'>No members logged in yet.</div>"}
+    </div>
+    <div class="card" style="padding:24px;">
+      <div style="font-weight:700;margin-bottom:14px;font-size:16px;">Edit Member Bio</div>
+      <div class="form-group">
+        <label class="form-label">Member USN</label>
+        <select id="bioMemberSel" class="form-input form-select">
+          <option value="">— Select —</option>
+          ${state.members.map(m=>`<option value="${m.usn}">${m.name}</option>`).join("")}
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Bio</label>
+        <textarea id="bioText" rows="3" class="form-input" style="resize:vertical;width:100%;" placeholder="Write something about them..."></textarea>
+      </div>
+      <button class="btn-primary" id="saveBioBtn">Save Bio</button>
+      <div id="bioStatus"></div>
+    </div>
+  </div>`;
+}
+
+function adminTripsHTML(){
+  const list = state.trips.map(t=>`
+    <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(255,248,235,0.7);border:1px solid rgba(232,101,26,0.1);border-radius:11px;margin-bottom:8px;">
+      <div style="flex:1;"><div style="font-weight:600;">${t.name}</div><div style="font-size:12px;color:var(--muted);">${t.location||""} · ${t.date||""} · <span style="color:${t.status==="upcoming"?"var(--orange)":"#2a9a55"}">${t.status}</span></div></div>
+      <button class="btn-danger" data-deletetrip="${t.id}">Delete</button>
+    </div>`).join("");
+  return `
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div class="card" style="padding:24px;">
+      <div style="font-weight:700;margin-bottom:16px;font-size:16px;">➕ Add New Trip</div>
+      <div class="form-group"><label class="form-label">Trip Name</label><input id="tripName" class="form-input" placeholder="e.g. Goa Beach Trip"/></div>
+      <div class="form-group"><label class="form-label">Location</label><input id="tripLoc" class="form-input" placeholder="e.g. Goa"/></div>
+      <div class="form-group"><label class="form-label">Date</label><input type="date" id="tripDate" class="form-input"/></div>
+      <div class="form-group"><label class="form-label">Status</label><select id="tripStatus" class="form-input form-select"><option value="upcoming">Upcoming</option><option value="completed">Completed</option></select></div>
+      <div class="form-group"><label class="form-label">Description</label><textarea id="tripDesc" rows="2" class="form-input" style="resize:vertical;width:100%;"></textarea></div>
+      <button class="btn-primary" id="addTripBtn">Add Trip 🗺️</button>
+      <div id="tripStatus2"></div>
+    </div>
+    <div>
+      <div style="font-weight:700;margin-bottom:14px;font-size:16px;">All Trips (${state.trips.length})</div>
+      ${list||"<div style='color:var(--muted);'>No trips yet.</div>"}
+    </div>
+  </div>`;
+}
+
+function adminUploadHTML(){
+  const imgs = state.gallery.map(g=>`
+    <div style="position:relative;border-radius:10px;overflow:hidden;aspect-ratio:1;">
+      <img src="${g.url}" style="width:100%;height:100%;object-fit:cover;">
+      <button data-deleteimg="${g.id}" data-imgpath="${g.storagePath||""}" style="position:absolute;top:6px;right:6px;background:rgba(220,50,50,0.85);border:none;color:white;border-radius:6px;width:26px;height:26px;cursor:pointer;font-weight:700;font-size:13px;">✕</button>
+    </div>`).join("");
+  return `
+  <div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;">
+      <div class="card" style="padding:24px;">
+        <div style="font-weight:700;margin-bottom:16px;font-size:16px;">📸 Upload Gallery Photos</div>
+        <div class="upload-zone" id="uploadZone">
+          <div class="upload-zone-icon">📁</div>
+          <div style="color:var(--muted);margin-top:10px;font-size:14px;">Click or drag images here</div>
+          <input type="file" id="galleryFiles" accept="image/*" multiple style="display:none">
+          <div id="fileNames" style="margin-top:10px;color:var(--orange);font-size:13px;font-weight:600;"></div>
+        </div>
+        <div class="form-group" style="margin-top:14px;"><label class="form-label">Caption</label><input id="galCaption" class="form-input" placeholder="Caption..."/></div>
+        <div class="form-group"><label class="form-label">Trip</label><select id="galTrip" class="form-input form-select"><option value="">— No trip —</option>${state.trips.map(t=>`<option value="${t.name}">${t.name}</option>`).join("")}</select></div>
+        <button class="btn-primary" id="uploadGalBtn">Upload to Firebase 🚀</button>
+        <div id="uploadStatus"></div>
+      </div>
+      <div>
+        <div style="font-weight:700;margin-bottom:14px;font-size:16px;">Gallery (${state.gallery.length} photos)</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;">${imgs||"<div style='color:var(--muted);font-size:13px;'>No photos yet.</div>"}</div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function adminProfileHTML(){
+  const memberOpts = state.members.map(m=>`<option value="${m.usn}">${m.name}</option>`).join("");
+  const cards = state.members.map(m=>`
+    <div class="card" style="padding:16px;text-align:center;">
+      ${m.profilePhoto ? `<img src="${m.profilePhoto}" style="width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid var(--orange);margin:0 auto;">` : `<div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,var(--peach),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto;">${m.emoji}</div>`}
+      <div style="font-weight:600;font-size:14px;margin-top:8px;">${m.name}</div>
+      <div style="font-size:11px;color:var(--muted);">${m.usn?.toUpperCase()}</div>
+    </div>`).join("");
+  return `
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div class="card" style="padding:24px;">
+      <div style="font-weight:700;margin-bottom:16px;font-size:16px;">🖼️ Upload Profile Photo</div>
+      <div class="form-group"><label class="form-label">Select Member</label><select id="profileMemberSel" class="form-input form-select"><option value="">— Select —</option>${memberOpts}</select></div>
+      <div class="upload-zone" id="profileUploadZone" style="margin-bottom:14px;">
+        <div class="upload-zone-icon">🖼️</div>
+        <div style="color:var(--muted);margin-top:8px;font-size:13px;">Click to select photo</div>
+        <input type="file" id="profileFile" accept="image/*" style="display:none">
+        <div id="profileFileName" style="margin-top:8px;color:var(--orange);font-size:13px;font-weight:600;"></div>
+      </div>
+      <button class="btn-primary" id="uploadProfileBtn">Upload Profile Photo</button>
+      <div id="profileStatus"></div>
+    </div>
+    <div>
+      <div style="font-weight:700;margin-bottom:14px;font-size:16px;">Member Photos</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;">${cards}</div>
+    </div>
+  </div>`;
+}
+
+function adminHomeBlocksHTML(){
+  const list = state.homeBlocks.map((b,i)=>`
+    <div style="display:flex;gap:12px;align-items:center;padding:12px 16px;background:rgba(255,248,235,0.8);border:1px solid rgba(232,101,26,0.12);border-radius:12px;margin-bottom:8px;">
+      ${b.imageUrl?`<img src="${b.imageUrl}" style="width:56px;height:56px;border-radius:10px;object-fit:cover;flex-shrink:0;">`:``}
+      <div style="flex:1;">
+        <div style="font-weight:700;font-size:14px;">${b.title||"Untitled"}</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px;">${(b.text||"").slice(0,60)}${(b.text||"").length>60?"…":""}</div>
+        <div style="font-size:11px;color:var(--orange);margin-top:2px;">Order: ${b.order||i}</div>
+      </div>
+      <button class="btn-danger" data-deletehb="${b.id}">Delete</button>
+    </div>`).join("") || `<div style="color:var(--muted);font-size:13px;">No sections yet. Add your first one!</div>`;
+
+  return `
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div class="card" style="padding:24px;">
+      <div style="font-weight:700;margin-bottom:16px;font-size:16px;">➕ Add Home Section</div>
+      <div class="form-group"><label class="form-label">Tag (e.g. 📍 Trip Recap)</label><input id="hbTag" class="form-input" placeholder="e.g. 🔥 Highlight"/></div>
+      <div class="form-group"><label class="form-label">Title</label><input id="hbTitle" class="form-input" placeholder="e.g. Goa Trip Was Insane!"/></div>
+      <div class="form-group"><label class="form-label">Text / Description</label><textarea id="hbText" rows="4" class="form-input" style="resize:vertical;width:100%;" placeholder="Write something about it..."></textarea></div>
+      <div class="form-group"><label class="form-label">Date (optional)</label><input type="date" id="hbDate" class="form-input"/></div>
+      <div class="form-group"><label class="form-label">Order (1 = top)</label><input type="number" id="hbOrder" class="form-input" value="1" min="1"/></div>
+      <div class="form-group"><label class="form-label">Image</label>
+        <div class="upload-zone" id="hbUploadZone">
+          <div class="upload-zone-icon">🖼️</div>
+          <div style="color:var(--muted);margin-top:8px;font-size:13px;">Click to select image</div>
+          <input type="file" id="hbFile" accept="image/*" style="display:none">
+          <div id="hbFileName" style="margin-top:8px;color:var(--orange);font-size:13px;font-weight:600;"></div>
+        </div>
+      </div>
+      <button class="btn-primary" id="addHbBtn">Add Section 📰</button>
+      <div id="hbStatus"></div>
+    </div>
+    <div>
+      <div style="font-weight:700;margin-bottom:14px;font-size:16px;">Home Sections (${state.homeBlocks.length})</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;">Sections alternate: image-left, image-right, image-left…</div>
+      ${list}
+    </div>
+  </div>`;
+}
+
+
+  const m = state.modal;
+  if(m?.type==="memberDetail"){
+    const mb = state.members.find(x=>x.usn===m.usn);
+    if(!mb) return "";
+    return `
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <button class="modal-close" id="modalClose">✕</button>
+        <div style="text-align:center;margin-bottom:20px;">
+          ${mb.profilePhoto ? `<img src="${mb.profilePhoto}" style="width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid var(--orange);">` : `<div style="width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--peach),var(--orange2));display:flex;align-items:center;justify-content:center;font-size:40px;margin:0 auto;">${mb.emoji}</div>`}
+          <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:900;margin-top:12px;">${mb.name}</div>
+          ${mb.isAdmin ? `<div class="admin-badge">👑 Admin</div>` : ""}
+        </div>
+        <div style="background:var(--warm);border-radius:14px;padding:16px;margin-bottom:12px;">
+          <div style="font-size:12px;color:var(--muted);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Details</div>
+          ${[["📋 USN",(mb.usn||"").toUpperCase()],["📧 Email",mb.email||"—"],["🎭 Vibe",mb.bio||"No bio yet"]].map(([l,v])=>`
+          <div style="display:flex;gap:10px;margin-bottom:8px;font-size:14px;">
+            <span style="color:var(--muted);min-width:80px;">${l}</span>
+            <span style="color:var(--mid);font-weight:500;">${v}</span>
+          </div>`).join("")}
+        </div>
+        <button class="modal-close" id="modalClose2" style="width:100%;border-radius:12px;padding:12px;font-size:14px;font-weight:700;background:rgba(232,101,26,0.1);color:var(--orange);">Close</button>
+      </div>
+    </div>`;
+  }
+  if(m?.type==="galleryFull"){
+    return `
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal" style="max-width:700px;">
+        <button class="modal-close" id="modalClose">✕</button>
+        <img src="${m.url}" style="width:100%;border-radius:14px;max-height:70vh;object-fit:contain;">
+        ${m.caption?`<div style="text-align:center;margin-top:12px;color:var(--mid);font-size:14px;">${m.caption}</div>`:""}
+        ${m.trip?`<div style="text-align:center;font-size:12px;color:var(--muted);margin-top:4px;">${m.trip}</div>`:""}
+      </div>
+    </div>`;
+  }
+  return "";
+}
+
+// ══════════════════════════════════════════════════════
+// EVENT BINDING
+// ══════════════════════════════════════════════════════
+function bindLanding(){
+  const btn = document.getElementById("loginBtn");
+  if(btn) btn.addEventListener("click", async () => {
+    try {
+      await signInWithPopup(auth, gProvider);
+    } catch(e){ showToast("❌ Login failed: "+e.message); }
+  });
+}
+
+function bindApp(){
+  // Nav page switches
+  document.querySelectorAll("[data-page]").forEach(el=>{
+    el.addEventListener("click", () => setState({page: el.dataset.page}));
+  });
+  // Logout
+  const lb = document.getElementById("logoutBtn");
+  if(lb) lb.addEventListener("click", () => signOut(auth));
+  // Modal close
+  ["modalClose","modalClose2","modalOverlay"].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.addEventListener("click", (e) => { if(e.target===el||id.includes("Close")) setState({modal:null}); });
+  });
+  // Member cards
+  document.querySelectorAll("[data-memberid]").forEach(el=>{
+    el.addEventListener("click", () => setState({modal:{type:"memberDetail",usn:el.dataset.memberid}}));
+  });
+  // Gallery items
+  document.querySelectorAll("[data-galleryid]").forEach(el=>{
+    el.addEventListener("click", () => {
+      const img = state.gallery.find(g=>g.id===el.dataset.galleryid);
+      if(img) setState({modal:{type:"galleryFull",...img}});
+    });
+  });
+  // Vote buttons
+  document.querySelectorAll("[data-vibeid]").forEach(el=>{
+    el.addEventListener("click", async () => {
+      const id = el.dataset.vibeid;
+      const vibe = state.vibes.find(v=>v.id===id);
+      if(!vibe) return;
+      await updateDoc(doc(db,"vibes",id),{votes:(vibe.votes||0)+1});
+      await loadVibes();
+    });
+  });
+  // Post vibe
+  const pvb = document.getElementById("postVibeBtn");
+  if(pvb) pvb.addEventListener("click", async () => {
+    const txt = document.getElementById("vibeText")?.value?.trim();
+    const tag = document.getElementById("vibeTag")?.value;
+    if(!txt) return;
+    await addDoc(collection(db,"vibes"),{
+      text:txt, tag, votes:0,
+      authorUsn: state.authUser.usn,
+      authorName: state.authUser.name,
+      date: new Date().toISOString().slice(0,10),
+      createdAt: serverTimestamp(),
+    });
+    showToast("🔥 Vibe posted!");
+    await loadVibes();
+  });
+  // Admin tabs
+  document.querySelectorAll("[data-atab]").forEach(el=>{
+    el.addEventListener("click", () => setState({adminTab: el.dataset.atab}));
+  });
+  // Admin: Add trip
+  const atb = document.getElementById("addTripBtn");
+  if(atb) atb.addEventListener("click", async () => {
+    const name = document.getElementById("tripName")?.value?.trim();
+    const loc  = document.getElementById("tripLoc")?.value?.trim();
+    const date = document.getElementById("tripDate")?.value;
+    const stat = document.getElementById("tripStatus")?.value;
+    const desc = document.getElementById("tripDesc")?.value?.trim();
+    if(!name) return;
+    await addDoc(collection(db,"trips"),{ name,location:loc,date,status:stat,description:desc,createdAt:serverTimestamp() });
+    showToast("✅ Trip added!");
+    await loadTrips();
+    setState({adminTab:"trips"});
+  });
+  // Admin: Delete trip
+  document.querySelectorAll("[data-deletetrip]").forEach(el=>{
+    el.addEventListener("click", async () => {
+      if(!confirm("Delete this trip?")) return;
+      await deleteDoc(doc(db,"trips",el.dataset.deletetrip));
+      await loadTrips();
+    });
+  });
+  // Admin: Save bio
+  const sbb = document.getElementById("saveBioBtn");
+  if(sbb) sbb.addEventListener("click", async () => {
+    const usn = document.getElementById("bioMemberSel")?.value;
+    const bio = document.getElementById("bioText")?.value?.trim();
+    if(!usn) return;
+    await updateDoc(doc(db,"users",usn),{bio});
+    document.getElementById("bioStatus").innerHTML = `<div class="status-msg status-ok">✅ Bio saved!</div>`;
+    showToast("✅ Bio updated!");
+    await loadMembers();
+  });
+  // Edit bio → pre-fill
+  document.querySelectorAll("[data-editbio]").forEach(el=>{
+    el.addEventListener("click", () => {
+      setState({adminTab:"members"});
+      setTimeout(()=>{
+        const sel = document.getElementById("bioMemberSel");
+        if(sel){ sel.value=el.dataset.editbio; }
+        const mb = state.members.find(m=>m.usn===el.dataset.editbio);
+        const ta = document.getElementById("bioText");
+        if(ta&&mb) ta.value = mb.bio||"";
+      },100);
+    });
+  });
+  // Gallery upload zone
+  const uz = document.getElementById("uploadZone");
+  const gf = document.getElementById("galleryFiles");
+  if(uz&&gf){
+    uz.addEventListener("click",()=>gf.click());
+    gf.addEventListener("change",()=>{ document.getElementById("fileNames").textContent = gf.files.length+" file(s) selected"; });
+    uz.addEventListener("dragover",e=>{ e.preventDefault(); uz.classList.add("drag"); });
+    uz.addEventListener("dragleave",()=>uz.classList.remove("drag"));
+    uz.addEventListener("drop",e=>{ e.preventDefault(); uz.classList.remove("drag"); gf.files=e.dataTransfer.files; document.getElementById("fileNames").textContent=gf.files.length+" file(s)"; });
+  }
+  const ugb = document.getElementById("uploadGalBtn");
+  if(ugb) ugb.addEventListener("click", async () => {
+    const files = document.getElementById("galleryFiles")?.files;
+    const caption = document.getElementById("galCaption")?.value?.trim();
+    const trip = document.getElementById("galTrip")?.value;
+    const statusEl = document.getElementById("uploadStatus");
+    if(!files?.length){ statusEl.innerHTML=`<div class="status-msg status-err">❌ Select images first.</div>`; return; }
+    statusEl.innerHTML=`<div class="status-msg" style="background:rgba(232,101,26,0.1);color:var(--orange);">⏳ Uploading ${files.length} file(s)...</div>`;
+    try{
+      for(const file of files){
+        const url = await uploadToImgbb(file);
+        await addDoc(collection(db,"gallery"),{ url, caption, trip, uploadedAt:serverTimestamp(), uploadedBy:state.authUser.usn });
+      }
+      statusEl.innerHTML=`<div class="status-msg status-ok">✅ Uploaded!</div>`;
+      showToast(`✅ ${files.length} photo(s) uploaded!`);
+      await loadGallery();
+    }catch(e){ statusEl.innerHTML=`<div class="status-msg status-err">❌ ${e.message}</div>`; }
+  });
+  // Delete gallery image
+  document.querySelectorAll("[data-deleteimg]").forEach(el=>{
+    el.addEventListener("click", async () => {
+      if(!confirm("Delete this photo?")) return;
+      await deleteDoc(doc(db,"gallery",el.dataset.deleteimg));
+      await loadGallery();
+    });
+  });
+  // Profile photo upload
+  const puz = document.getElementById("profileUploadZone");
+  const pf = document.getElementById("profileFile");
+  if(puz&&pf){
+    puz.addEventListener("click",()=>pf.click());
+    pf.addEventListener("change",()=>{ document.getElementById("profileFileName").textContent=pf.files[0]?.name||""; });
+  }
+  const upb = document.getElementById("uploadProfileBtn");
+  if(upb) upb.addEventListener("click", async () => {
+    const usn = document.getElementById("profileMemberSel")?.value;
+    const file = document.getElementById("profileFile")?.files?.[0];
+    const statusEl = document.getElementById("profileStatus");
+    if(!usn||!file){ statusEl.innerHTML=`<div class="status-msg status-err">❌ Select member and photo.</div>`; return; }
+    statusEl.innerHTML=`<div class="status-msg" style="background:rgba(232,101,26,0.1);color:var(--orange);">⏳ Uploading...</div>`;
+    try{
+      const url = await uploadToImgbb(file);
+      await updateDoc(doc(db,"users",usn),{ profilePhoto:url });
+      statusEl.innerHTML=`<div class="status-msg status-ok">✅ Profile photo updated!</div>`;
+      showToast("✅ Profile photo saved!");
+      await loadMembers();
+    }catch(e){ statusEl.innerHTML=`<div class="status-msg status-err">❌ ${e.message}</div>`; }
+  });
+  // Home Blocks
+  const hbuz = document.getElementById("hbUploadZone");
+  const hbf  = document.getElementById("hbFile");
+  if(hbuz&&hbf){
+    hbuz.addEventListener("click",()=>hbf.click());
+    hbf.addEventListener("change",()=>{ document.getElementById("hbFileName").textContent=hbf.files[0]?.name||""; });
+  }
+  const ahb = document.getElementById("addHbBtn");
+  if(ahb) ahb.addEventListener("click", async () => {
+    const title = document.getElementById("hbTitle")?.value?.trim();
+    const text  = document.getElementById("hbText")?.value?.trim();
+    const tag   = document.getElementById("hbTag")?.value?.trim();
+    const date  = document.getElementById("hbDate")?.value;
+    const order = parseInt(document.getElementById("hbOrder")?.value||"1");
+    const file  = document.getElementById("hbFile")?.files?.[0];
+    const statusEl = document.getElementById("hbStatus");
+    if(!title){ statusEl.innerHTML=`<div class="status-msg status-err">❌ Title is required.</div>`; return; }
+    statusEl.innerHTML=`<div class="status-msg" style="background:rgba(232,101,26,0.1);color:var(--orange);">⏳ Saving...</div>`;
+    try{
+      let imageUrl = "";
+      if(file) imageUrl = await uploadToImgbb(file);
+      await addDoc(collection(db,"homeBlocks"),{ title, text, tag, date, order, imageUrl, createdAt:serverTimestamp() });
+      statusEl.innerHTML=`<div class="status-msg status-ok">✅ Section added!</div>`;
+      showToast("✅ Home section added!");
+      await loadHomeBlocks();
+    }catch(e){ statusEl.innerHTML=`<div class="status-msg status-err">❌ ${e.message}</div>`; }
+  });
+  // Delete home block
+  document.querySelectorAll("[data-deletehb]").forEach(el=>{
+    el.addEventListener("click", async () => {
+      if(!confirm("Delete this section?")) return;
+      await deleteDoc(doc(db,"homeBlocks",el.dataset.deletehb));
+      await loadHomeBlocks();
+    });
+  });
+}
+
+// ══════════════════════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════════════════════
+function showToast(msg){
+  setState({toast:msg});
+  setTimeout(()=>setState({toast:null}),3200);
+}
+
+// ══════════════════════════════════════════════════════
+// BOOT
+// ══════════════════════════════════════════════════════
+render();
+</script>
+</body>
+</html>
